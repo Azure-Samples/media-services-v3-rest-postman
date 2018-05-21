@@ -753,7 +753,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n \"properties\": {\r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputHttp\",\r\n      \"baseUri\": \"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/\",\r\n      \"files\": [\r\n      \t\t\"Ignite-short.mp4\"\r\n      \t]\r\n    },\r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"job1-OutputAsset\"\r\n      }\r\n    ]\r\n }\r\n}"
+							"raw": "{\r\n \"properties\": {\r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputHttp\",\r\n      \"baseUri\": \"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/\",\r\n      \"files\": [\r\n      \t\t\"Ignite-short.mp4\"\r\n      \t]\r\n    },\r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"testAsset1\"\r\n      }\r\n    ]\r\n }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
