@@ -8,11 +8,13 @@ author: Juliako
 
 The *Postman* folder in this repository contains a full Postman collection and Environment variables to test drive the new v3 REST API directly from within Postman 6.0 or higher.
 
+This collection is using the "2018-06-01-preview" version of Azure Media Services.
+
 The following files are included:
 
 |File name|Description|
 |---|---|
-|*Media Services v3 (2018-03-30-preview).postman_collection.json*|The collection contains grouped definitions of HTTP requests that call Azure Media Services v3 REST APIs.|
+|*Media Services v3.postman_collection.json*|The collection contains grouped definitions of HTTP requests that call Azure Media Services v3 REST APIs.|
 |*Azure Media Service v3 Environment.postman_environment.json*|The environment file contains variables that are used by the collection. |
 
 ## Prerequisites

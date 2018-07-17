@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "97901dfd-9f8a-41fe-9d6d-042c38bab852",
-		"name": "Media Services v3 (2018-03-30-preview)",
+		"name": "Media Services v3",
 		"description": "Azure Media Services v3 API Collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -294,7 +294,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"properties\": {\n    \"description\": \"Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets\",\n      \"outputs\": [\n        {\n          \"onError\": \"StopProcessingJob\",\n      \"relativePriority\": \"Normal\",\n          \"preset\": {\n            \"@odata.type\": \"#Microsoft.Media.BuiltInStandardEncoderPreset\",\n            \"presetName\": \"H264MultipleBitrate720p\"\n          }\n        }\n      ]\n  }\n}"
+							"raw": "{\n  \"properties\": {\n    \"description\": \"Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets\",\n      \"outputs\": [\n        {\n          \"onError\": \"StopProcessingJob\",\n      \"relativePriority\": \"Normal\",\n          \"preset\": {\n            \"@odata.type\": \"#Microsoft.Media.BuiltInStandardEncoderPreset\",\n            \"presetName\": \"AdaptiveStreaming\"\n          }\n        }\n      ]\n  }\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
@@ -370,7 +370,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"properties\": {\n    \"description\": \"Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets\",\n      \"outputs\": [\n        {\n          \"onError\": \"StopProcessingJob\",\n      \"relativePriority\": \"High\",\n          \"preset\": {\n            \"@odata.type\": \"#Microsoft.Media.BuiltInStandardEncoderPreset\",\n            \"presetName\": \"H264MultipleBitrate720p\"\n          }\n        }\n      ]\n  }\n}"
+							"raw": "{\n  \"properties\": {\n    \"description\": \"Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets\",\n      \"outputs\": [\n        {\n          \"onError\": \"StopProcessingJob\",\n      \"relativePriority\": \"High\",\n          \"preset\": {\n            \"@odata.type\": \"#Microsoft.Media.BuiltInStandardEncoderPreset\",\n            \"presetName\": \"AdaptiveStreaming\"\n          }\n        }\n      ]\n  }\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
