@@ -17,6 +17,8 @@ The following files are included:
 |*Media Services v3.postman_collection.json*|The collection contains grouped definitions of HTTP requests that call Azure Media Services v3 REST APIs.|
 |*Azure Media Service v3 Environment.postman_environment.json*|The environment file contains variables that are used by the collection. |
 
+These files support the [Tutorial: Upload, encode, and stream videos with REST](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-rest) article.
+
 ## Prerequisites
 
 To import and use the json files in this repository, you need to install [Postman](https://www.getpostman.com/) 6.0 or higher.
