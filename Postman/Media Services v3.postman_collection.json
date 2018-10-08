@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "68de5b33-7719-4f1c-a9ee-98ccbf04f80f",
 		"name": "Media Services v3 (2018-07-01 GA)",
-		"description": "Azure Media Services v3 2018-07-01 GA API Collection",
+		"description": "Azure Media Services v3 API Collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -2673,7 +2673,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"properties\": {\r\n        \"presentationTimeRange\": {\r\n          \"startTimestamp\": 0,\r\n          \"endTimestamp\": 170000000,\r\n          \"presentationWindowDuration\": 9223372036854775807,\r\n          \"liveBackoffDuration\": 0,\r\n          \"timescale\": 10000000,\r\n          \"forceEndTimestamp\": false\r\n        },\r\n        \"firstQuality\": {\r\n          \"bitrate\": 128000\r\n        },\r\n        \"tracks\": [\r\n          {\r\n            \"trackSelections\": [\r\n              {\r\n                \"property\": \"Type\",\r\n                \"operation\": \"Equal\",\r\n                \"value\": \"Audio\"\r\n              },\r\n              {\r\n                \"property\": \"Language\",\r\n                \"operation\": \"NotEqual\",\r\n                \"value\": \"en\"\r\n              },\r\n              {\r\n                \"property\": \"FourCC\",\r\n                \"operation\": \"NotEqual\",\r\n                \"value\": \"EC-3\"\r\n              }\r\n            ]\r\n          },\r\n          {\r\n            \"trackSelections\": [\r\n              {\r\n                \"property\": \"Type\",\r\n                \"operation\": \"Equal\",\r\n                \"value\": \"Video\"\r\n              },\r\n              {\r\n                \"property\": \"Bitrate\",\r\n                \"operation\": \"Equal\",\r\n                \"value\": \"3000000-5000000\"\r\n              }\r\n            ]\r\n          }\r\n        ]\r\n      }\r\n}"
+							"raw": "{\r\n\t\"properties\": {\r\n        \"tracks\": [\r\n       \r\n          {\r\n            \"trackSelections\": [\r\n              {\r\n                \"property\": \"Type\",\r\n                \"operation\": \"Equal\",\r\n                \"value\": \"Video\"\r\n              },\r\n              {\r\n                \"property\": \"Bitrate\",\r\n                \"operation\": \"Equal\",\r\n                \"value\": \"0-1000000\"\r\n              }\r\n            ]\r\n          }\r\n        ]\r\n      }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/accountFilters/:filterName?api-version={{api-version}}",
@@ -2877,7 +2877,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms?api-version={{api-version}}&$filter={{$filter}}&$top={{$top}}&$skip={{$skip}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2899,18 +2899,6 @@
 								{
 									"key": "api-version",
 									"value": "{{api-version}}"
-								},
-								{
-									"key": "$filter",
-									"value": "{{$filter}}"
-								},
-								{
-									"key": "$top",
-									"value": "{{$top}}"
-								},
-								{
-									"key": "$skip",
-									"value": "{{$skip}}"
 								}
 							],
 							"variable": [
@@ -4197,7 +4185,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators?api-version={{api-version}}&$filter={{$filter}}&$top={{$top}}&$orderby={{$orderby}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4222,15 +4210,18 @@
 								},
 								{
 									"key": "$filter",
-									"value": "{{$filter}}"
+									"value": "{{$filter}}",
+									"disabled": true
 								},
 								{
 									"key": "$top",
-									"value": "{{$top}}"
+									"value": "{{$top}}",
+									"disabled": true
 								},
 								{
 									"key": "$orderby",
-									"value": "{{$orderby}}"
+									"value": "{{$orderby}}",
+									"disabled": true
 								}
 							],
 							"variable": [
@@ -4878,7 +4869,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"location\":\"West Central US\",\r\n  \"tags\": {\r\n    \"createdBy\": \"user name\",\r\n    \"sourceEncoder\": \"value 1\"\r\n  },\r\n  \"properties\": {\r\n    \"description\": \"Simple Live Event using RTMP with 2-second keyframe interval and no ip restriction\",\r\n    \"input\": {\r\n      \"streamingProtocol\": \"RTMP\",\r\n      \"keyFrameIntervalDuration\": \"PT2S\"\r\n    },\r\n    \"preview\": {\r\n      \"accessControl\": {\r\n        \"ip\": {\r\n          \"allow\": [\r\n            {\r\n              \"name\": \"AllowAll\",\r\n              \"address\": \"0.0.0.0\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    },\r\n    \"encoding\": {\r\n      \"encodingType\": \"None\"\r\n    },\r\n    \"streamOptions\": []\r\n  }\r\n}"
+							"raw": "{\r\n  \"location\":\"West Central US\",\r\n  \"tags\": {\r\n    \"createdBy\": \"user name\",\r\n    \"sourceEncoder\": \"value 1\"\r\n  },\r\n  \"properties\": {\r\n    \"description\": \"Simple Live Event using RTMP with 2-second keyframe interval and no ip restriction\",\r\n    \"input\": {\r\n      \"streamingProtocol\": \"RTMP\",\r\n      \"keyFrameIntervalDuration\": \"PT2S\",\r\n       \"accessControl\": {\r\n            \"ip\": {\r\n                \"allow\": [\r\n                    {\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\",\r\n                        \"subnetPrefixLength\": 0\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    },\r\n    \"preview\": {\r\n      \"accessControl\": {\r\n        \"ip\": {\r\n          \"allow\": [\r\n            {\r\n              \"name\": \"AllowAll\",\r\n              \"address\": \"0.0.0.0\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    },\r\n    \"encoding\": {\r\n      \"encodingType\": \"None\"\r\n    },\r\n    \"streamOptions\": []\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
@@ -4949,7 +4940,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"location\":\"West Central US\",\r\n  \"tags\": {\r\n    \"createdBy\": \"user name\"\r\n  },\r\n  \"properties\": {\r\n    \"description\": \"Simple Live Event encoder for RTMP with 2-second keyframe interval and no ip restriction\",\r\n    \"input\": {\r\n      \"streamingProtocol\": \"RTMP\",\r\n      \"keyFrameIntervalDuration\": \"PT2S\"\r\n    },\r\n    \"preview\": {\r\n      \"accessControl\": {\r\n        \"ip\": {\r\n          \"allow\": [\r\n            {\r\n              \"name\": \"AllowAll\",\r\n              \"address\": \"0.0.0.0\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    },\r\n    \"encoding\": {\r\n      \"encodingType\": \"Basic\",\r\n      \"presetName\": \"\"\r\n    },\r\n    \"streamOptions\": []\r\n  }\r\n}"
+							"raw": "{\r\n  \"location\":\"West Central US\",\r\n  \"tags\": {\r\n    \"createdBy\": \"user name\"\r\n  },\r\n  \"properties\": {\r\n    \"description\": \"Simple Live Event encoder for RTMP with 2-second keyframe interval and no ip restriction\",\r\n    \"input\": {\r\n      \"streamingProtocol\": \"RTMP\",\r\n      \"keyFrameIntervalDuration\": \"PT2S\",\r\n       \"accessControl\": {\r\n            \"ip\": {\r\n                \"allow\": [\r\n                    {\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\",\r\n                        \"subnetPrefixLength\": 0\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    },\r\n    \"preview\": {\r\n      \"accessControl\": {\r\n        \"ip\": {\r\n          \"allow\": [\r\n            {\r\n              \"name\": \"AllowAll\",\r\n              \"address\": \"0.0.0.0\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    },\r\n    \"encoding\": {\r\n      \"encodingType\": \"Basic\",\r\n      \"presetName\": \"\"\r\n    },\r\n    \"streamOptions\": []\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
