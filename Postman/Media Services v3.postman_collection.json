@@ -4323,7 +4323,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"StreamingPolicyName\": \"clearStreamingPolicy\",\r\n    \"AssetName\": \"myOutputAsset\",\r\n    \"contentKeys\": [],\r\n    \"filters\": []\r\n }\r\n}"
+							"raw": "{\r\n  \"properties\": {\r\n    \"streamingPolicyName\": \"clearStreamingPolicy\",\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"contentKeys\": [],\r\n    \"filters\": []\r\n }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
