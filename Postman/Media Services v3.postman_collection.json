@@ -4323,7 +4323,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"StreamingPolicyName\": \"clearStreamingPolicy\",\r\n    \"AssetName\": \"myOutputAsset\"\r\n  }\r\n}"
+							"raw": "{\r\n  \"properties\": {\r\n    \"StreamingPolicyName\": \"clearStreamingPolicy\",\r\n    \"AssetName\": \"myOutputAsset\",\r\n    \"contentKeys\": [],\r\n    \"filters\": []\r\n }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
@@ -4390,7 +4390,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"streamingPolicyName\": \"secureStreamingPolicy\",\r\n    \"StreamingLocatorId\": \"90000000-0000-0000-0000-00000000000A\",\r\n    \"ContentKeys\": [\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"aesDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000001\",\r\n        \"Value\": \"1UqLohAfWsEGkULYxHjYZg==\"\r\n      },\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"cencDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000004\",\r\n        \"Value\": \"4UqLohAfWsEGkULYxHjYZg==\"\r\n      },\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"cbcsDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000007\",\r\n        \"Value\": \"7UqLohAfWsEGkULYxHjYZg==\"\r\n      }\r\n    ]\r\n  }\r\n}"
+							"raw": "{\r\n  \"properties\": {\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"streamingPolicyName\": \"secureStreamingPolicy\",\r\n    \"StreamingLocatorId\": \"90000000-0000-0000-0000-00000000000A\",\r\n    \"filters\": [],\r\n   \"contentKeys\": [\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"aesDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000001\",\r\n        \"Value\": \"1UqLohAfWsEGkULYxHjYZg==\"\r\n      },\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"cencDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000004\",\r\n        \"Value\": \"4UqLohAfWsEGkULYxHjYZg==\"\r\n      },\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"cbcsDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000007\",\r\n        \"Value\": \"7UqLohAfWsEGkULYxHjYZg==\"\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
@@ -4457,7 +4457,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"StreamingPolicyName\": \"secureStreamingPolicy\",\r\n    \"AssetName\": \"myOutputAsset\",\r\n    \"StartTime\": \"2018-03-01T00:00:00Z\",\r\n    \"EndTime\": \"2028-12-31T23:59:59.9999999Z\"\r\n  }\r\n}"
+							"raw": "{\r\n  \"properties\": {\r\n    \"StreamingPolicyName\": \"secureStreamingPolicy\",\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"contentKeys\": [],\r\n    \"filters\": [],\r\n    \"startTime\": \"2018-03-01T00:00:00Z\",\r\n    \"endTime\": \"2028-12-31T23:59:59.9999999Z\"\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
