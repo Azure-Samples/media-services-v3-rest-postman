@@ -3000,7 +3000,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets\",\r\n      \"outputs\": [\r\n        {\r\n          \"onError\": \"StopProcessingJob\",\r\n      \"relativePriority\": \"Normal\",\r\n          \"preset\": {\r\n            \"@odata.type\": \"#Microsoft.Media.BuiltInStandardEncoderPreset\",\r\n            \"presetName\": \"H264MultipleBitrate720p\"\r\n          }\r\n        }\r\n      ]\r\n  }\r\n}"
+							"raw": "{\r\n    \"properties\": {\r\n        \"description\": \"Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets\",\r\n        \"outputs\": [\r\n            {\r\n                \"onError\": \"StopProcessingJob\",\r\n                \"relativePriority\": \"Normal\",\r\n                \"preset\": {\r\n                    \"@odata.type\": \"#Microsoft.Media.BuiltInStandardEncoderPreset\",\r\n                    \"presetName\": \"AdaptiveStreaming\"\r\n                }\r\n            }\r\n        ]\r\n    }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
@@ -3334,6 +3334,79 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n \"properties\": {\r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputHttp\",\r\n      \"baseUri\": \"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/\",\r\n      \"files\": [\r\n      \t\t\"Ignite-short.mp4\"\r\n      \t]\r\n    },\r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"myOutputAsset\"\r\n      }\r\n    ],\r\n    \"priority\" : \"Normal\",\r\n    \"correlationData\": {\r\n    \t\"myKey1\" :\"my custom correlation metadata for this job\"\r\n    }\r\n }\r\n}"
+						},
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaServices",
+								":accountName",
+								"transforms",
+								":transformName",
+								"jobs",
+								":jobName"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"key": "accountName",
+									"value": "{{accountName}}"
+								},
+								{
+									"key": "transformName",
+									"value": "{{transformName}}"
+								},
+								{
+									"key": "jobName",
+									"value": "{{jobName}}"
+								}
+							]
+						},
+						"description": "Creates a Job."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Job with Sub Clipping",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"A Job with transform cb9599fb-03b3-40eb-a2ff-7ea909f53735 and single clip.\",\r\n   \r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputHttp\",\r\n      \"baseUri\": \"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/\",\r\n      \"files\": [\r\n      \t\t\"Ignite-short.mp4\"\r\n      \t],\r\n      \"start\": {\r\n        \"@odata.type\": \"#Microsoft.Media.AbsoluteClipTime\",\r\n        \"time\": \"PT10S\"\r\n      },\r\n      \"end\": {\r\n        \"@odata.type\": \"#Microsoft.Media.AbsoluteClipTime\",\r\n        \"time\": \"PT40S\"\r\n      }\r\n    },\r\n  \r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"myOutputAsset\"\r\n      }\r\n    ],\r\n    \"priority\": \"Normal\"\r\n  }\r\n}\r\n"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
