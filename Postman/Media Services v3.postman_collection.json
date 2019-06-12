@@ -4942,7 +4942,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"location\": \"{{location}}\",\r\n    \"properties\": {\r\n        \"description\": \"Simple Live Event using RTMP with 2-second keyframe interval and no ip restriction\",\r\n        \"vanityUrl\": true,\r\n        \"streamOptions\": [\r\n            \"LowLatency\"\r\n        ],\r\n        \"input\": {\r\n            \"streamingProtocol\": \"RTMP\",\r\n            \"keyFrameIntervalDuration\": \"PT2S\",\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\",\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"preview\": {\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\"\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"encoding\": {\r\n            \"encodingType\": \"None\",\r\n            \"presetName\": \"\"\r\n        }\r\n    }\r\n}"
+							"raw": "{\r\n    \"location\": \"{{location}}\",\r\n    \"properties\": {\r\n        \"description\": \"Simple Live Event using RTMP with 2-second keyframe interval and no ip restriction\",\r\n        \"vanityUrl\": true,\r\n        \"streamOptions\": [\r\n            \"LowLatency\"\r\n        ],\r\n        \"input\": {\r\n            \"streamingProtocol\": \"RTMP\",\r\n            \"accessToken\": \"3075cc04-62ab-4b37-9a4e-70fdb4521458\",\"keyFrameIntervalDuration\": \"PT2S\",\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\",\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"preview\": {\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\"\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"encoding\": {\r\n            \"encodingType\": \"None\",\r\n            \"presetName\": \"\"\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
@@ -4993,7 +4993,7 @@
 								}
 							]
 						},
-						"description": "Creates a Live Event with pass-through mode. No encoding."
+						"description": "Creates a Live Event with pass-through mode. No encoding. Update the accessToken to be a unique GUID for each LiveEvent that you create."
 					},
 					"response": []
 				},
