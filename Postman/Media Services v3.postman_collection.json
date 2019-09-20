@@ -2311,6 +2311,73 @@
 					"response": []
 				},
 				{
+					"name": "Create Content Key Policy (FairPlay Offline)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"properties\": {\r\n    \"options\": [\r\n      {\r\n        \"name\": \"FairPlayOffline\",\r\n        \"configuration\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration\",\r\n          \"ask\": \"XXXXXXXXXXXXXXXXX\",\r\n          \"fairPlayPfxPassword\": \"XXXXXXXXXXXXXXXXX\",\r\n          \"fairPlayPfx\": \"XXXXXXXXXXXXXXXXX\",\r\n          \"rentalAndLeaseKeyType\": \"DualExpiry\",\r\n          \"rentalDuration\": 0,\r\n          \"offlineRentalConfiguration\": {\r\n            \"storageDurationSeconds\": 300000,\r\n            \"playbackDurationSeconds\": 500000\r\n          }\r\n        },\r\n        \"restriction\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyOpenRestriction\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaServices",
+								":accountName",
+								"contentKeyPolicies",
+								":contentKeyPolicyName"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"key": "accountName",
+									"value": "{{accountName}}"
+								},
+								{
+									"key": "contentKeyPolicyName",
+									"value": "{{contentKeyPolicyName}}"
+								}
+							]
+						},
+						"description": "Create a FairPlay Offline Content Key Policy.  Update the properties for ask, fairPlayPfxPassword, adn fairPlayPfx with the values you received from Apple after registration for FairPlay certificate"
+					},
+					"response": []
+				},
+				{
 					"name": "Update a Content Key Policy",
 					"request": {
 						"method": "PATCH",
@@ -3000,7 +3067,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"properties\": {\r\n        \"description\": \"Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets\",\r\n        \"outputs\": [\r\n            {\r\n                \"onError\": \"StopProcessingJob\",\r\n                \"relativePriority\": \"Normal\",\r\n                \"preset\": {\r\n                    \"@odata.type\": \"#Microsoft.Media.BuiltInStandardEncoderPreset\",\r\n                    \"presetName\": \"AdaptiveStreaming\"\r\n                }\r\n            }\r\n        ]\r\n    }\r\n}"
+							"raw": "{\r\n    \"properties\": {\r\n        \"description\": \"Basic Transform using an Adaptive Streaming encoding preset from the library of built-in Standard Encoder presets\",\r\n        \"outputs\": [\r\n            {\r\n                \"onError\": \"StopProcessingJob\",\r\n                \"relativePriority\": \"Normal\",\r\n                \"preset\": {\r\n                    \"@odata.type\": \"#Microsoft.Media.BuiltInStandardEncoderPreset\",\r\n                    \"presetName\": \"AdaptiveStreaming\"\r\n                }\r\n            }\r\n        ]\r\n    }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
