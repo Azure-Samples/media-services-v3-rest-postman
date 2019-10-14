@@ -8,6 +8,11 @@ author: Juliako
 
 The *Postman* folder in this repository contains a full Postman collection and Environment variables to test drive the new v3 REST API directly from within Postman 6.0 or higher.
 
+This collection targets API version both versions of **"2018-07-01"** which is the GA release for AMS, and adds the MediaGraph entity which uses version **"2019-09-01-preview"**
+    * This is an early preview release for Azure Media Services live video analytics with the Media Graph.
+  * 
+
+
 The following files are included:
 
 |File name|Description|

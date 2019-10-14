@@ -1,13 +1,11 @@
-## [project-title] Changelog
+## Azure Media Services Postman Collection
 
-<a name="x.y.z"></a>
-# x.y.z (yyyy-mm-dd)
+<a name="2019-09-01-preview"></a>
+# 2019-09-01-preview
 
 *Features*
-* ...
+* Added new Media Graph feature for Private Preview Release
 
-*Bug Fixes*
-* ...
 
 *Breaking Changes*
-* ...
+* None

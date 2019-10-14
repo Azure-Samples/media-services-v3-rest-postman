@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "68de5b33-7719-4f1c-a9ee-98ccbf04f80f",
-		"name": "Media Services v3 (2018-07-01 GA)",
-		"description": "Azure Media Services v3 API Collection. Last Modified Date: 08/09/19 ",
+		"name": "Media Services v3 LVA private preview (2019-09-01-preview)",
+		"description": "Azure Media Services v3 API Collection. Includes Media Graph for Live Video Analytics Private Preview Last Modified Date: 10/10/19 ",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -6289,6 +6289,705 @@
 					}
 				}
 			]
+		},
+		{
+			"name": "Media Graphs",
+			"item": [
+				{
+					"name": "Create or update a Media Graph (unauthenticated)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f48baa02-6a51-47f8-8a9d-1a140060f94a",
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"properties\": {\n        \"description\": \"My first Media Graph\",\n        \"sources\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphRtspSource\",\n                \"name\": \"rtspSource\",\n                \"rtspUrl\": \"rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov\",\n                \"credentials\": {\n                    \"username\": \"testusername\",\n                    \"password\": \"testpassword\"\n                }\n            }\n        ],\n        \"sinks\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphAssetSink\",\n                \"name\": \"AssetSink\",\n                \"inputs\": [\n                    \"rtspSource\"\n                ],\n                \"assetName\": \"myOutputAsset\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaServices",
+								":accountName",
+								"mediaGraphs",
+								":mediaGraphName"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version-lva}}",
+									"description": "The Version of the API to be used with the client request."
+								}
+							],
+							"variable": [
+								{
+									"description": "The unique identifier for a Microsoft Azure subscription.",
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"description": "The name of the resource group within the Azure subscription.",
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"description": "The Media Services account name.",
+									"key": "accountName",
+									"value": "{{accountName}}"
+								},
+								{
+									"description": "The Media Graph name.",
+									"key": "mediaGraphName",
+									"value": "{{mediaGraphName}}"
+								}
+							]
+						},
+						"description": "Creates a new Media Graph object to ingest from an RTSP IP Camera"
+					},
+					"response": []
+				},
+				{
+					"name": "Create or update a Media Graph (password authenticated)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e17ba5c6-f36b-4a51-b12f-05b9447d67aa",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"properties\": {\n        \"description\": \"My Media Graph\",\n        \"sources\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphRtspSource\",\n                \"name\": \"rtspSource\",\n                \"rtspUrl\": \"rtsp://rtsp.camerasimulator.uswc1.analytics.media.azure.net:554/cc6d6213-7a8a-4cec-8083-e17f917b10ab\",\n                \"credentials\": {\n                    \"username\": \"exampleusername\",\n                    \"password\": \"examplepassword\"\n                }\n            }\n        ],\n        \"sinks\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphAssetSink\",\n                \"name\": \"AssetSink\",\n                \"inputs\": [\n                    \"rtspSource\"\n                ],\n                \"assetName\": \"myOutputAsset\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaServices",
+								":accountName",
+								"mediaGraphs",
+								":mediaGraphName"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version-lva}}",
+									"description": "The Version of the API to be used with the client request."
+								}
+							],
+							"variable": [
+								{
+									"description": "The unique identifier for a Microsoft Azure subscription.",
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"description": "The name of the resource group within the Azure subscription.",
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"description": "The Media Services account name.",
+									"key": "accountName",
+									"value": "{{accountName}}"
+								},
+								{
+									"description": "The Media Graph name.",
+									"key": "mediaGraphName",
+									"value": "{{mediaGraphName}}"
+								}
+							]
+						},
+						"description": "Creates a new Media Graph object to ingest from an RTSP IP Camera"
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta a Media Graph",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c4abf33c-1340-43e7-8311-a9dd330bea2d",
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaServices",
+								":accountName",
+								"mediaGraphs",
+								":mediaGraphName"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version-lva}}",
+									"description": "The Version of the API to be used with the client request."
+								}
+							],
+							"variable": [
+								{
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}",
+									"description": "The unique identifier for a Microsoft Azure subscription."
+								},
+								{
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}",
+									"description": "The name of the resource group within the Azure subscription."
+								},
+								{
+									"key": "accountName",
+									"value": "{{accountName}}",
+									"description": "The Media Services account name."
+								},
+								{
+									"key": "mediaGraphName",
+									"value": "{{mediaGraphName}}",
+									"description": "The Media Graph name."
+								}
+							]
+						},
+						"description": "Deletes a Media Graph object to ingest from an RTSP IP Camera"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Media Graph",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1cbdc28f-d775-4128-92f9-a7a34e90b64b",
+								"exec": [
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaServices",
+								":accountName",
+								"mediaGraphs",
+								":mediaGraphName"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version-lva}}",
+									"description": "The Version of the API to be used with the client request."
+								}
+							],
+							"variable": [
+								{
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}",
+									"description": "The unique identifier for a Microsoft Azure subscription."
+								},
+								{
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}",
+									"description": "The name of the resource group within the Azure subscription."
+								},
+								{
+									"key": "accountName",
+									"value": "{{accountName}}",
+									"description": "The Media Services account name."
+								},
+								{
+									"key": "mediaGraphName",
+									"value": "{{mediaGraphName}}",
+									"description": "The Media Graph name."
+								}
+							]
+						},
+						"description": "Gets a Media Graph object and shows its properties"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Media Graph async operation status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "376f54b5-f4a3-48af-a7d6-fdf34bc2e026",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response JSON has a name\", function (){",
+									"    pm.expect(pm.response.json().name)",
+									"}",
+									");",
+									"",
+									"pm.test(\"Response JSON has a status\", function (){",
+									"    pm.expect(pm.response.json().status)",
+									"}",
+									");",
+									"",
+									"pm.environment.set(\"operationId\", ",
+									"    pm.response.json().name",
+									"    );",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{operationStatus}}",
+							"host": [
+								"{{operationStatus}}"
+							]
+						},
+						"description": "Gets a Media Graph operation status and shows its progress"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Media Graph async operation results",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName/operationResults/:operationId?api-version={{api-version-lva}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaServices",
+								":accountName",
+								"mediaGraphs",
+								":mediaGraphName",
+								"operationResults",
+								":operationId"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version-lva}}"
+								}
+							],
+							"variable": [
+								{
+									"description": "The unique identifier for a Microsoft Azure subscription.",
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"description": "The name of the resource group within the Azure subscription.",
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"description": "The Media Services account name.",
+									"key": "accountName",
+									"value": "{{accountName}}"
+								},
+								{
+									"description": "The Media Graph name.",
+									"key": "mediaGraphName",
+									"value": "{{mediaGraphName}}"
+								},
+								{
+									"description": "The operation ID",
+									"key": "operationId",
+									"value": "{{operationId}}"
+								}
+							]
+						},
+						"description": "Gets a Media Graph async operation results"
+					},
+					"response": []
+				},
+				{
+					"name": "Start a Media Graph",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "67b8aafe-eff1-4682-a8f3-022539368f2f",
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});",
+									"pm.test(\"response header has an Async Operation Status URL\", function(){ pm.response.to.have.header(\"Azure-AsyncOperation\")});",
+									"",
+									"pm.environment.set(\"operationStatus\", ",
+									"    pm.response.headers.get(\"Azure-AsyncOperation\")",
+									"    );",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName/start?api-version={{api-version-lva}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaServices",
+								":accountName",
+								"mediaGraphs",
+								":mediaGraphName",
+								"start"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version-lva}}",
+									"description": "The Version of the API to be used with the client request."
+								}
+							],
+							"variable": [
+								{
+									"description": "The unique identifier for a Microsoft Azure subscription.",
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"description": "The name of the resource group within the Azure subscription.",
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"description": "The Media Services account name.",
+									"key": "accountName",
+									"value": "{{accountName}}"
+								},
+								{
+									"description": "The Media Graph name.",
+									"key": "mediaGraphName",
+									"value": "{{mediaGraphName}}"
+								}
+							]
+						},
+						"description": "Starts a Media Graph object and begins ingesting, processing and archiving. This is a billable state. "
+					},
+					"response": []
+				},
+				{
+					"name": "Stop a Media Graph",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "48c9ee12-5c61-4a3e-ad24-330fd2a429ca",
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName/stop?api-version={{api-version-lva}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaServices",
+								":accountName",
+								"mediaGraphs",
+								":mediaGraphName",
+								"stop"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version-lva}}",
+									"description": "The Version of the API to be used with the client request."
+								}
+							],
+							"variable": [
+								{
+									"description": "The unique identifier for a Microsoft Azure subscription.",
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"description": "The name of the resource group within the Azure subscription.",
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"description": "The Media Services account name.",
+									"key": "accountName",
+									"value": "{{accountName}}"
+								},
+								{
+									"description": "The Media Graph name.",
+									"key": "mediaGraphName",
+									"value": "{{mediaGraphName}}"
+								}
+							]
+						},
+						"description": "Stops a Media Graph object from ingesting, processing and archiving. This stops the billable state. "
+					},
+					"response": []
+				},
+				{
+					"name": "List Media Graphs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "21fdd616-e23a-4216-95c7-a657ff7d2f20",
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {",
+									"    pm.response.to.have.status(202);",
+									"} &&",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"})",
+									");",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/?api-version={{api-version-lva}}&$top=25",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaServices",
+								":accountName",
+								"mediaGraphs",
+								""
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version-lva}}",
+									"description": "The Version of the API to be used with the client request."
+								},
+								{
+									"key": "$top",
+									"value": "25",
+									"description": "Specifies a non-negative integer n that limits the number of items returned from a collection. The service returns the number of available items up to but not greater than the specified value n."
+								}
+							],
+							"variable": [
+								{
+									"description": "The unique identifier for a Microsoft Azure subscription.",
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"description": "The name of the resource group within the Azure subscription.",
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"description": "The Media Services account name.",
+									"key": "accountName",
+									"value": "{{accountName}}"
+								}
+							]
+						},
+						"description": "Lists all Media Graph objects in the account"
+					},
+					"response": []
+				}
+			],
+			"description": "This is the new Live Video Analytics MediaGraph APIS for ingesting from an RTSP IP Camera (AXIS for example).\nThis featuer is in private preview currently",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0df95b35-3abb-4ed4-88d0-e5f751ea0548",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "951aa38e-5590-4b65-a8f9-c70a3fb3eddd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
