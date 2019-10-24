@@ -3400,7 +3400,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n \"properties\": {\r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputHttp\",\r\n      \"baseUri\": \"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/\",\r\n      \"files\": [\r\n      \t\t\"Ignite-short.mp4\"\r\n      \t]\r\n    },\r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"myOutputAsset\"\r\n      }\r\n    ],\r\n    \"priority\" : \"Normal\",\r\n    \"correlationData\": {\r\n    \t\"myKey1\" :\"my custom correlation metadata for this job\"\r\n    }\r\n }\r\n}"
+							"raw": "{\r\n \"properties\": {\r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputHttp\",\r\n      \"baseUri\": \"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/\",\r\n      \"files\": [\r\n      \t\t\"Ignite-short.mp4\"\r\n      \t]\r\n    },\r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"{{assetName}}\"\r\n      }\r\n    ],\r\n    \"priority\" : \"Normal\",\r\n    \"correlationData\": {\r\n    \t\"myKey1\" :\"my custom correlation metadata for this job\"\r\n    }\r\n }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
@@ -3473,7 +3473,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"A Job with transform cb9599fb-03b3-40eb-a2ff-7ea909f53735 and single clip.\",\r\n   \r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputHttp\",\r\n      \"baseUri\": \"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/\",\r\n      \"files\": [\r\n      \t\t\"Ignite-short.mp4\"\r\n      \t],\r\n      \"start\": {\r\n        \"@odata.type\": \"#Microsoft.Media.AbsoluteClipTime\",\r\n        \"time\": \"PT10S\"\r\n      },\r\n      \"end\": {\r\n        \"@odata.type\": \"#Microsoft.Media.AbsoluteClipTime\",\r\n        \"time\": \"PT40S\"\r\n      }\r\n    },\r\n  \r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"myOutputAsset\"\r\n      }\r\n    ],\r\n    \"priority\": \"Normal\"\r\n  }\r\n}\r\n"
+							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"A Job with transform cb9599fb-03b3-40eb-a2ff-7ea909f53735 and single clip.\",\r\n   \r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputHttp\",\r\n      \"baseUri\": \"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/\",\r\n      \"files\": [\r\n      \t\t\"Ignite-short.mp4\"\r\n      \t],\r\n      \"start\": {\r\n        \"@odata.type\": \"#Microsoft.Media.AbsoluteClipTime\",\r\n        \"time\": \"PT10S\"\r\n      },\r\n      \"end\": {\r\n        \"@odata.type\": \"#Microsoft.Media.AbsoluteClipTime\",\r\n        \"time\": \"PT40S\"\r\n      }\r\n    },\r\n  \r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"{{assetName}}\"\r\n      }\r\n    ],\r\n    \"priority\": \"Normal\"\r\n  }\r\n}\r\n"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
@@ -4463,7 +4463,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"streamingPolicyName\": \"clearStreamingPolicy\",\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"contentKeys\": [],\r\n    \"filters\": []\r\n }\r\n}"
+							"raw": "{\r\n  \"properties\": {\r\n    \"streamingPolicyName\": \"clearStreamingPolicy\",\r\n    \"assetName\": \"{{assetName}}\",\r\n    \"contentKeys\": [],\r\n    \"filters\": []\r\n }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
@@ -4530,7 +4530,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"streamingPolicyName\": \"secureStreamingPolicy\",\r\n    \"streamingLocatorId\": \"90000000-0000-0000-0000-00000000000A\",\r\n    \"filters\": [],\r\n   \"contentKeys\": [\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"aesDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000001\",\r\n        \"Value\": \"1UqLohAfWsEGkULYxHjYZg==\"\r\n      },\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"cencDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000004\",\r\n        \"Value\": \"4UqLohAfWsEGkULYxHjYZg==\"\r\n      },\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"cbcsDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000007\",\r\n        \"Value\": \"7UqLohAfWsEGkULYxHjYZg==\"\r\n      }\r\n    ]\r\n  }\r\n}"
+							"raw": "{\r\n  \"properties\": {\r\n    \"assetName\": \"{{assetName}}\",\r\n    \"streamingPolicyName\": \"secureStreamingPolicy\",\r\n    \"streamingLocatorId\": \"90000000-0000-0000-0000-00000000000A\",\r\n    \"filters\": [],\r\n   \"contentKeys\": [\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"aesDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000001\",\r\n        \"Value\": \"1UqLohAfWsEGkULYxHjYZg==\"\r\n      },\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"cencDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000004\",\r\n        \"Value\": \"4UqLohAfWsEGkULYxHjYZg==\"\r\n      },\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"cbcsDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000007\",\r\n        \"Value\": \"7UqLohAfWsEGkULYxHjYZg==\"\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
@@ -4597,7 +4597,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"streamingPolicyName\": \"secureStreamingPolicy\",\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"contentKeys\": [],\r\n    \"filters\": [],\r\n    \"startTime\": \"2018-03-01T00:00:00Z\",\r\n    \"endTime\": \"2028-12-31T23:59:59.9999999Z\"\r\n  }\r\n}"
+							"raw": "{\r\n  \"properties\": {\r\n    \"streamingPolicyName\": \"secureStreamingPolicy\",\r\n    \"assetName\": \"{{assetName}}\",\r\n    \"contentKeys\": [],\r\n    \"filters\": [],\r\n    \"startTime\": \"2018-03-01T00:00:00Z\",\r\n    \"endTime\": \"2028-12-31T23:59:59.9999999Z\"\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
@@ -5615,7 +5615,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"properties\": {\r\n        \"description\": \"myOutputAsset\",\r\n        \"assetName\": \"myOutputAsset\",\r\n        \"archiveWindowLength\": \"PT5M\",\r\n        \"manifestName\": \"testmanifest\",\r\n        \"hls\": {\r\n          \"fragmentsPerTsSegment\": 1\r\n        }\r\n    }\r\n}"
+							"raw": "{\r\n    \"properties\": {\r\n        \"description\": \"{{assetName}}\",\r\n        \"assetName\": \"{{assetName}}\",\r\n        \"archiveWindowLength\": \"PT5M\",\r\n        \"manifestName\": \"testmanifest\",\r\n        \"hls\": {\r\n          \"fragmentsPerTsSegment\": 1\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/liveOutputs/:liveOutputName?api-version={{api-version}}",
@@ -6322,7 +6322,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"properties\": {\n        \"description\": \"My first Media Graph\",\n        \"sources\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphRtspSource\",\n                \"name\": \"rtspSource\",\n                \"rtspUrl\": \"rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov\",\n                \"credentials\": {\n                    \"username\": \"testusername\",\n                    \"password\": \"testpassword\"\n                }\n            }\n        ],\n        \"sinks\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphAssetSink\",\n                \"name\": \"AssetSink\",\n                \"inputs\": [\n                    \"rtspSource\"\n                ],\n                \"assetName\": \"myOutputAsset\"\n            }\n        ]\n    }\n}",
+							"raw": "{\n    \"properties\": {\n        \"description\": \"My first Media Graph\",\n        \"sources\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphRtspSource\",\n                \"name\": \"rtspSource\",\n                \"rtspUrl\": \"rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov\",\n                \"credentials\": {\n                    \"username\": \"testusername\",\n                    \"password\": \"testpassword\"\n                }\n            }\n        ],\n        \"sinks\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphAssetSink\",\n                \"name\": \"AssetSink\",\n                \"inputs\": [\n                    \"rtspSource\"\n                ],\n                \"assetName\": \"{{assetName}}\"\n            }\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6411,7 +6411,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"properties\": {\n        \"description\": \"My Media Graph\",\n        \"sources\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphRtspSource\",\n                \"name\": \"rtspSource\",\n                \"rtspUrl\": \"rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov\",\n                \"credentials\": {\n                    \"username\": \"exampleusername\",\n                    \"password\": \"examplepassword\"\n                }\n            }\n        ],\n        \"sinks\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphAssetSink\",\n                \"name\": \"AssetSink\",\n                \"inputs\": [\n                    \"rtspSource\"\n                ],\n                \"assetName\": \"myOutputAsset\"\n            }\n        ]\n    }\n}",
+							"raw": "{\n    \"properties\": {\n        \"description\": \"My Media Graph\",\n        \"sources\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphRtspSource\",\n                \"name\": \"rtspSource\",\n                \"rtspUrl\": \"rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov\",\n                \"credentials\": {\n                    \"username\": \"exampleusername\",\n                    \"password\": \"examplepassword\"\n                }\n            }\n        ],\n        \"sinks\": [\n            {\n                \"@odata.type\": \"#Microsoft.Media.MediaGraphAssetSink\",\n                \"name\": \"AssetSink\",\n                \"inputs\": [\n                    \"rtspSource\"\n                ],\n                \"assetName\": \"{{assetName}}\"\n            }\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
