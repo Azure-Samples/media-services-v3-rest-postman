@@ -83,7 +83,7 @@
 							"variable": [
 								{
 									"key": "tenantId",
-									"value": "{{tenantid}}"
+									"value": "{{tenantId}}"
 								}
 							]
 						}
@@ -1022,7 +1022,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"A documentary showing the ascent of Mount Logan\",\r\n    \"alternateId\": \"(Optional) some GUID\",\r\n    \"storageAccountName\": \"(Optional) someStorageAccount\",\r\n    \"container\": \"(Optional) custom container name if you want\"\r\n  }\r\n}"
+							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"A documentary showing the ascent of Mount Logan\",\r\n   }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}",
