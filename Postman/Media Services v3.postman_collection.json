@@ -4174,7 +4174,7 @@
 								}
 							]
 						},
-						"description": "Create a Streaming Policy in the Media Services account using AES clear-key envelope encrption only"
+						"description": "Create a Streaming Policy in the Media Services account using AES clear-key envelope encryption only"
 					},
 					"response": []
 				},
