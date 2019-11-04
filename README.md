@@ -1,7 +1,11 @@
 ---
-services: media-services
-platforms: rest
-author: Juliako
+page_type: sample
+languages:
+- json
+products:
+- azure
+description: "A full Postman collection and Environment variables to test drive the new v3 REST API directly from within Postman 6.0 or higher."
+urlFragment: azure-media-services-postman-collection
 ---
 
 # Azure Media Services v3 Postman collection 

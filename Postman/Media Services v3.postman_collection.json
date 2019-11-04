@@ -83,7 +83,7 @@
 							"variable": [
 								{
 									"key": "tenantId",
-									"value": "{{tenantid}}"
+									"value": "{{tenantId}}"
 								}
 							]
 						}
