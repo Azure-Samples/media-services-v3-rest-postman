@@ -5615,7 +5615,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"properties\": {\r\n        \"description\": \"{{assetName}}\",\r\n        \"assetName\": \"{{assetName}}\",\r\n        \"archiveWindowLength\": \"PT5M\",\r\n        \"manifestName\": \"testmanifest\",\r\n        \"hls\": {\r\n          \"fragmentsPerTsSegment\": 1\r\n        }\r\n    }\r\n}"
+							"raw": "{\r\n    \"properties\": {\r\n        \"description\": \"{{assetName}}\",\r\n        \"assetName\": \"med\",\r\n        \"archiveWindowLength\": \"PT5M\",\r\n        \"manifestName\": \"testmanifest\",\r\n        \"hls\": {\r\n          \"fragmentsPerTsSegment\": 1\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/liveOutputs/:liveOutputName?api-version={{api-version}}",
