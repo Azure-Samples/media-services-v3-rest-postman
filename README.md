@@ -32,7 +32,7 @@ To import and use the json files in this repository, you need to install [Postma
 
 ## Set environment variables
 
-Get the values that will enable you to access AMS v3 APIs. Then, set the environment variables to the values you got. 
+Get the values that will enable you to access AMS v3 APIs. Then, set the environment variables to the values you received from the CLI or portal. 
 
 The following bash shell script creates a service principal for the account and returns the app.config settings as xml
 
