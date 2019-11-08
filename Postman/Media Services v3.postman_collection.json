@@ -4868,7 +4868,7 @@
 			]
 		},
 		{
-			"name": "Streaming and LIve",
+			"name": "Streaming and Live",
 			"item": [
 				{
 					"name": "List Live Events",
@@ -4994,7 +4994,30 @@
 					"response": []
 				},
 				{
-					"name": "Create Live Event (pass-through)",
+					"name": "Create Live Event - Async (pass-through)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f6b967e4-fa42-4b8c-b1e6-2f6f0151f176",
+								"exec": [
+									"// This is an async operation so we expect a 202 Accepted response",
+									"pm.test(\"Status code is 202 Accepted. Check the Header Azure-AsyncOperation and call the value for status polling\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});",
+									"",
+									"// Check that we have an Azure-Async Operation header ",
+									"pm.test(\"Azure-AsyncOperation Header exists\", function () {",
+									"    pm.response.to.have.header(\"Azure-AsyncOperation\");",
+									"});",
+									"",
+									"",
+									"pm.environment.set(\"Last-Azure-AsyncOperation\", pm.response.headers.get(\"Azure-AsyncOperation\") );"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -5060,12 +5083,35 @@
 								}
 							]
 						},
-						"description": "Creates a Live Event with pass-through mode. No encoding. Update the accessToken to be a unique GUID for each LiveEvent that you create."
+						"description": "Creates a Live Event with pass-through mode. No encoding. Update the accessToken to be a unique GUID for each LiveEvent that you create. NOTE: this is an asynchronous operation which can take time.  You should use standard Azure ARM async pattern to poll for the status of the provisioning of this resource. See - https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations - The response code will be a 202 Accept, at which point you should parse the Azure-AsyncOperation header for the path to poll for status. Once the status is Succeeded, you can make a GET request on the LiveEvent to access the RTMP ingest URLs and the Preview manifest endpoints"
 					},
 					"response": []
 				},
 				{
-					"name": "Create Live Event (Standard Live Encoder)",
+					"name": "Create Live Event - Async (Standard 720P Live Encoder)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f6b967e4-fa42-4b8c-b1e6-2f6f0151f176",
+								"exec": [
+									"// This is an async operation so we expect a 202 Accepted response",
+									"pm.test(\"Status code is 202 Accepted. Check the Header Azure-AsyncOperation and call the value for status polling\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});",
+									"",
+									"// Check that we have an Azure-Async Operation header ",
+									"pm.test(\"Azure-AsyncOperation Header exists\", function () {",
+									"    pm.response.to.have.header(\"Azure-AsyncOperation\");",
+									"});",
+									"",
+									"",
+									"pm.environment.set(\"Last-Azure-AsyncOperation\", pm.response.headers.get(\"Azure-AsyncOperation\") );"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -5131,7 +5177,158 @@
 								}
 							]
 						},
-						"description": "Creates a Live Event with standard live encoder."
+						"description": "Creates a Live Event with standard live encoder. NOTE: this is an asynchronous operation which can take time.  You should use standard Azure ARM async pattern to poll for the status of the provisioning of this resource. See - https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations -  The response code will be a 202 Accept, at which point you should parse the Azure-AsyncOperation header for the path to poll for status. Once the status is Succeeded, you can make a GET request on the LiveEvent to access the RTMP ingest URLs and the Preview manifest endpoints"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Live Event - Async (Premium 1080P Live Encoder)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f6b967e4-fa42-4b8c-b1e6-2f6f0151f176",
+								"exec": [
+									"// This is an async operation so we expect a 202 Accepted response",
+									"pm.test(\"Status code is 202 Accepted. Check the Header Azure-AsyncOperation and call the value for status polling\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});",
+									"",
+									"// Check that we have an Azure-Async Operation header ",
+									"pm.test(\"Azure-AsyncOperation Header exists\", function () {",
+									"    pm.response.to.have.header(\"Azure-AsyncOperation\");",
+									"});",
+									"",
+									"",
+									"pm.environment.set(\"Last-Azure-AsyncOperation\", pm.response.headers.get(\"Azure-AsyncOperation\") );"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\": \"{{location}}\",\r\n    \"properties\": {\r\n        \"description\": \"Premium 1080P Live Transcoding Event using RTMP with 2-second keyframe interval and no ip restriction. Encoding Type supports Standard, or Premium1080p \",\r\n        \"vanityUrl\": true,\r\n        \"streamOptions\": [\r\n            \"LowLatency\"\r\n        ],\r\n        \"input\": {\r\n            \"streamingProtocol\": \"RTMP\",\r\n            \"accessToken\": \"3075cc04-62ab-4b37-9a4e-70fdb4521458\",\"keyFrameIntervalDuration\": \"PT2S\",\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\",\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"preview\": {\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\"\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"encoding\": {\r\n            \"encodingType\": \"Premium1080p\",\r\n            \"presetName\": \"\"\r\n        }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaservices",
+								":accountName",
+								"liveEvents",
+								":liveEventName"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version}}"
+								},
+								{
+									"key": "autoStart",
+									"value": "{{autoStart}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"key": "accountName",
+									"value": "{{accountName}}"
+								},
+								{
+									"key": "liveEventName",
+									"value": "{{liveEventName}}"
+								}
+							]
+						},
+						"description": "Creates a Live Event with Premium 1080p live encoder. NOTE: this is an asynchronous operation which can take time.  You should use standard Azure ARM async pattern to poll for the status of the provisioning of this resource. See - https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations - The response code will be a 202 Accept, at which point you should parse the Azure-AsyncOperation header for the path to poll for status. Once the status is Succeeded, you can make a GET request on the LiveEvent to access the RTMP ingest URLs and the Preview manifest endpoints"
+					},
+					"response": []
+				},
+				{
+					"name": "Step 2: Poll for Live Event provisioning Status after Create if 202 Accepted",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27e713f8-8770-42e6-b063-67f19c16566d",
+								"exec": [
+									"// This is an async operation so we expect a 202 Accepted response",
+									"pm.test(\"Status code is 202 Accepted. Check the Header Azure-AsyncOperation and call the value for status polling\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});",
+									"",
+									"// Check that we have an Azure-Async Operation header ",
+									"pm.test(\"Azure-AsyncOperation Header exists\", function () {",
+									"    pm.response.to.have.header(\"Azure-AsyncOperation\");",
+									"});",
+									"",
+									"",
+									"pm.environment.set(\"Last-Azure-AsyncOperation\", pm.response.headers.get(\"Azure-AsyncOperation\") );"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AccessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{Last-Azure-AsyncOperation}}",
+							"host": [
+								"{{Last-Azure-AsyncOperation}}"
+							]
+						},
+						"description": "If you receive a 202 Accepted after calling create on Live Event, this eses the value of the Azure-AsyncOperation header to poll for the status of the operation after Create. \n\nCreating a live event is a long running async operation which uses the standard Azure ARM async pattern. See - https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations"
 					},
 					"response": []
 				},
