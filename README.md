@@ -4,6 +4,7 @@ languages:
 - json
 products:
 - azure
+- azure-media-services
 description: "A full Postman collection and Environment variables to test drive the new v3 REST API directly from within Postman 6.0 or higher."
 urlFragment: azure-media-services-postman-collection
 ---
