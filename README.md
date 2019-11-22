@@ -10,7 +10,7 @@ urlFragment: azure-media-services-postman-collection
 ---
 
 # Azure Media Services v3 Postman collection 
-
+ 
 The *Postman* folder in this repository contains a full Postman collection and Environment variables to test drive the new v3 REST API directly from within Postman 6.0 or higher.
 
 The following files are included:
