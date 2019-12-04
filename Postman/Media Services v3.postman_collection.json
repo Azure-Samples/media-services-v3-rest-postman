@@ -4463,7 +4463,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"streamingPolicyName\": \"clearStreamingPolicy\",\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"contentKeys\": [],\r\n    \"filters\": []\r\n }\r\n}"
+							"raw": "{\r\n  \"properties\": {\r\n    \"streamingPolicyName\": \"Predefined_ClearStreamingOnly\",\r\n    \"assetName\": \"{{assetName}}\",\r\n    \"contentKeys\": [],\r\n    \"filters\": []\r\n }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
