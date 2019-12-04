@@ -49,13 +49,13 @@
 								},
 								{
 									"key": "client_id",
-									"value": "{{clientId}}",
+									"value": "{{aadClientId}}",
 									"description": "The Client ID for your AAD application",
 									"type": "text"
 								},
 								{
 									"key": "client_secret",
-									"value": "{{clientSecret}}",
+									"value": "{{aadClientSecret}}",
 									"description": "The Client Secret (key) for your AAD application Service principal. This is URL Encoded on the wire.",
 									"type": "text"
 								},
@@ -68,7 +68,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://login.microsoftonline.com/:tenantId/oauth2/token",
+							"raw": "https://login.microsoftonline.com/:aadTenantDomain/oauth2/token",
 							"protocol": "https",
 							"host": [
 								"login",
@@ -76,14 +76,14 @@
 								"com"
 							],
 							"path": [
-								":tenantId",
+								":aadTenantDomain",
 								"oauth2",
 								"token"
 							],
 							"variable": [
 								{
-									"key": "tenantId",
-									"value": "{{tenantId}}"
+									"key": "aadTenantDomain",
+									"value": "{{aadTenantDomain}}"
 								}
 							]
 						}
@@ -248,7 +248,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -259,7 +259,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices"
@@ -276,8 +276,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								}
 							]
 						},
@@ -301,7 +301,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -312,7 +312,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -330,8 +330,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -359,10 +359,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"location\": \"{{location}}\",\r\n      \"tags\": {\r\n        \"createdBy\": \"user name\"\r\n      },\r\n      \"properties\": {\r\n        \"storageAccounts\": [\r\n          {\r\n            \"id\": \"/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.Storage/storageAccounts/{{storageAccountName}}\",\r\n            \"type\": \"Primary\"\r\n          }\r\n        ]\r\n      }\r\n}\r\n\t"
+							"raw": "{\r\n   \"location\": \"{{location}}\",\r\n      \"tags\": {\r\n        \"createdBy\": \"user name\"\r\n      },\r\n      \"properties\": {\r\n        \"storageAccounts\": [\r\n          {\r\n            \"id\": \"/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageAccountName}}\",\r\n            \"type\": \"Primary\"\r\n          }\r\n        ]\r\n      }\r\n}\r\n\t"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -373,7 +373,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -391,8 +391,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -423,7 +423,7 @@
 							"raw": "{\r\n      \"tags\": {\r\n        \"key1\": \"value3\"\r\n      }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -434,7 +434,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -452,8 +452,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -481,7 +481,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -492,7 +492,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -510,8 +510,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -542,7 +542,7 @@
 							"raw": "{\r\n  \"id\": \"{{storageAccountName}}\"\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/syncStorageKeys?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/syncStorageKeys?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -553,7 +553,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -572,8 +572,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -737,7 +737,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -748,7 +748,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -782,8 +782,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -811,7 +811,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets?api-version={{api-version}}&$orderby=properties/created",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets?api-version={{api-version}}&$orderby=properties/created",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -822,7 +822,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -855,8 +855,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -884,7 +884,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets?api-version={{api-version}}&$filter=properties/created gt 2012-06-01 and properties/created lt 2013-07-01",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets?api-version={{api-version}}&$filter=properties/created gt 2012-06-01 and properties/created lt 2013-07-01",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -895,7 +895,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -929,8 +929,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -958,7 +958,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -969,7 +969,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -989,8 +989,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1025,7 +1025,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"A documentary showing the ascent of Mount Logan\",\r\n   }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1036,7 +1036,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1056,8 +1056,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1092,7 +1092,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"A documentary showing the ascent of Mount Baker in HD\"\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1103,7 +1103,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1123,8 +1123,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1156,7 +1156,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1167,7 +1167,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1187,8 +1187,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1223,7 +1223,7 @@
 							"raw": "{\r\n  \"permissions\": \"ReadWrite\",\r\n  \"expiryTime\": \"2018-01-01T10:00:00.007Z\"\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/listContainerSas?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/listContainerSas?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1234,7 +1234,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1255,8 +1255,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1288,7 +1288,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/getEncryptionKey?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/getEncryptionKey?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1299,7 +1299,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1320,8 +1320,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1353,7 +1353,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/listStreamingLocators?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/listStreamingLocators?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1364,7 +1364,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1385,8 +1385,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1418,7 +1418,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/assetFilters?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/assetFilters?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1429,7 +1429,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1450,8 +1450,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1483,7 +1483,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/assetFilters/:filterName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/assetFilters/:filterName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1494,7 +1494,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1516,8 +1516,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1556,7 +1556,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"presentationTimeRange\": {\r\n      \"startTimestamp\": 0,\r\n      \"endTimestamp\": 170000000,\r\n      \"presentationWindowDuration\": 9223372036854775807,\r\n      \"liveBackoffDuration\": 0,\r\n      \"timescale\": 10000000,\r\n      \"forceEndTimestamp\": false\r\n    },\r\n    \"firstQuality\": {\r\n      \"bitrate\": 128000\r\n    },\r\n    \"tracks\": [\r\n      {\r\n        \"trackSelections\": [\r\n          {\r\n            \"property\": \"Type\",\r\n            \"operation\": \"Equal\",\r\n            \"value\": \"Audio\"\r\n          },\r\n          {\r\n            \"property\": \"Language\",\r\n            \"operation\": \"NotEqual\",\r\n            \"value\": \"en\"\r\n          },\r\n          {\r\n            \"property\": \"FourCC\",\r\n            \"operation\": \"NotEqual\",\r\n            \"value\": \"EC-3\"\r\n          }\r\n        ]\r\n      },\r\n      {\r\n        \"trackSelections\": [\r\n          {\r\n            \"property\": \"Type\",\r\n            \"operation\": \"Equal\",\r\n            \"value\": \"Video\"\r\n          },\r\n          {\r\n            \"property\": \"Bitrate\",\r\n            \"operation\": \"Equal\",\r\n            \"value\": \"3000000-5000000\"\r\n          }\r\n        ]\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/assetFilters/:filterName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/assetFilters/:filterName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1567,7 +1567,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1589,8 +1589,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1629,7 +1629,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"presentationTimeRange\": {\r\n      \"startTimestamp\": 10,\r\n      \"endTimestamp\": 170000000,\r\n      \"presentationWindowDuration\": 9223372036854775807,\r\n      \"liveBackoffDuration\": 0,\r\n      \"timescale\": 10000000,\r\n      \"forceEndTimestamp\": false\r\n    },\r\n    \"firstQuality\": {\r\n      \"bitrate\": 128000\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/assetFilters/:filterName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/assetFilters/:filterName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1640,7 +1640,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1662,8 +1662,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1699,7 +1699,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/assetFilters/:filterName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName/assetFilters/:filterName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1710,7 +1710,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1732,8 +1732,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1775,7 +1775,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies?api-version={{api-version}}&$filter={{$filter}}&$top={{$top}}&$orderby={{$orderby}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies?api-version={{api-version}}&$filter={{$filter}}&$top={{$top}}&$orderby={{$orderby}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1786,7 +1786,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1817,8 +1817,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1846,7 +1846,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies?api-version={{api-version}}&$filter=properties/lastModified gt 2018-06-01 and properties/created lt 2013-07-01",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies?api-version={{api-version}}&$filter=properties/lastModified gt 2018-06-01 and properties/created lt 2013-07-01",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1857,7 +1857,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1891,8 +1891,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1920,7 +1920,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies?api-version={{api-version}}&$orderBy=properties/lastModified",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies?api-version={{api-version}}&$orderBy=properties/lastModified",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -1931,7 +1931,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -1965,8 +1965,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -1994,7 +1994,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2005,7 +2005,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2025,8 +2025,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2061,7 +2061,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"Policy Description\",\r\n    \"options\": [\r\n      {\r\n        \"name\": \"ClearKeyOption\",\r\n        \"configuration\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration\"\r\n        },\r\n        \"restriction\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyTokenRestriction\",\r\n          \"issuer\": \"urn:issuer\",\r\n          \"audience\": \"urn:audience\",\r\n          \"primaryVerificationKey\": {\r\n            \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicySymmetricTokenKey\",\r\n            \"keyValue\": \"AAAAAAAAAAAAAAAAAAAAAA==\"\r\n          },\r\n          \"restrictionTokenType\": \"Swt\"\r\n        }\r\n      },\r\n      {\r\n        \"name\": \"widevineoption\",\r\n        \"configuration\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyWidevineConfiguration\",\r\n          \"widevineTemplate\": \"{\\\"allowed_track_types\\\":\\\"SD_HD\\\",\\\"content_key_specs\\\":[{\\\"track_type\\\":\\\"SD\\\",\\\"security_level\\\":1,\\\"required_output_protection\\\":{\\\"hdcp\\\":\\\"HDCP_V2\\\"}}],\\\"policy_overrides\\\":{\\\"can_play\\\":true,\\\"can_persist\\\":true,\\\"can_renew\\\":false}}\"\r\n        },\r\n        \"restriction\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyOpenRestriction\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2072,7 +2072,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2092,8 +2092,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2128,7 +2128,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"ArmPolicyDescription\",\r\n    \"options\": [\r\n      {\r\n        \"name\": \"ClearKeyOption\",\r\n        \"configuration\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration\"\r\n        },\r\n        \"restriction\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyTokenRestriction\",\r\n          \"issuer\": \"urn:issuer\",\r\n          \"audience\": \"urn:audience\",\r\n          \"primaryVerificationKey\": {\r\n            \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicySymmetricTokenKey\",\r\n            \"keyValue\": \"AAAAAAAAAAAAAAAAAAAAAA==\"\r\n          },\r\n          \"restrictionTokenType\": \"Swt\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2139,7 +2139,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2159,8 +2159,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2195,7 +2195,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"policyId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"description\": \"ArmPolicyDescription\",\r\n    \"options\": [\r\n      {\r\n        \"policyOptionId\": \"00000000-0000-0000-0000-000000000000\",\r\n        \"name\": \"ArmPolicyOptionName\",\r\n        \"configuration\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration\",\r\n          \"licenses\": [\r\n            {\r\n              \"allowTestDevices\": true,\r\n              \"beginDate\": \"2017-10-16T18:22:53.46Z\",\r\n              \"playRight\": {\r\n                \"scmsRestriction\": 2,\r\n                \"imageConstraintForAnalogComponentVideoRestriction\": true,\r\n                \"allowPassingVideoContentToUnknownOutput\": \"NotAllowed\"\r\n              },\r\n              \"licenseType\": \"Persistent\",\r\n              \"contentKeyLocation\": {\r\n                \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader\"\r\n              },\r\n              \"contentType\": \"UltraVioletDownload\"\r\n            }\r\n          ]\r\n        },\r\n        \"restriction\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyOpenRestriction\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2206,7 +2206,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2226,8 +2226,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2262,7 +2262,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"ArmPolicyDescription\",\r\n    \"options\": [\r\n      {\r\n        \"name\": \"widevineoption\",\r\n        \"configuration\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyWidevineConfiguration\",\r\n          \"widevineTemplate\": \"{\\\"allowed_track_types\\\":\\\"SD_HD\\\",\\\"content_key_specs\\\":[{\\\"track_type\\\":\\\"SD\\\",\\\"security_level\\\":1,\\\"required_output_protection\\\":{\\\"hdcp\\\":\\\"HDCP_V2\\\"}}],\\\"policy_overrides\\\":{\\\"can_play\\\":true,\\\"can_persist\\\":true,\\\"can_renew\\\":false}}\"\r\n        },\r\n        \"restriction\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyTokenRestriction\",\r\n          \"issuer\": \"urn:issuer\",\r\n          \"audience\": \"urn:audience\",\r\n          \"primaryVerificationKey\": {\r\n            \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyRsaTokenKey\",\r\n            \"exponent\": \"AQAB\",\r\n            \"modulus\": \"AQAD\"\r\n          },\r\n          \"alternateVerificationKeys\": [\r\n            {\r\n              \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicySymmetricTokenKey\",\r\n              \"keyValue\": \"AAAAAAAAAAAAAAAAAAAAAA==\"\r\n            }\r\n          ],\r\n          \"restrictionTokenType\": \"Jwt\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2273,7 +2273,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2293,8 +2293,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2329,7 +2329,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"options\": [\r\n      {\r\n        \"name\": \"FairPlayOffline\",\r\n        \"configuration\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration\",\r\n          \"ask\": \"XXXXXXXXXXXXXXXXX\",\r\n          \"fairPlayPfxPassword\": \"XXXXXXXXXXXXXXXXX\",\r\n          \"fairPlayPfx\": \"XXXXXXXXXXXXXXXXX\",\r\n          \"rentalAndLeaseKeyType\": \"DualExpiry\",\r\n          \"rentalDuration\": 0,\r\n          \"offlineRentalConfiguration\": {\r\n            \"storageDurationSeconds\": 300000,\r\n            \"playbackDurationSeconds\": 500000\r\n          }\r\n        },\r\n        \"restriction\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyOpenRestriction\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}\r\n"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2340,7 +2340,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2360,8 +2360,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2396,7 +2396,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"Updated Policy\",\r\n    \"options\": [\r\n      {\r\n        \"name\": \"ClearKeyOption\",\r\n        \"configuration\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration\"\r\n        },\r\n        \"restriction\": {\r\n          \"@odata.type\": \"#Microsoft.Media.ContentKeyPolicyOpenRestriction\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2407,7 +2407,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2427,8 +2427,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2460,7 +2460,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2471,7 +2471,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2491,8 +2491,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2524,7 +2524,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName/getPolicyPropertiesWithSecrets?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/contentKeyPolicies/:contentKeyPolicyName/getPolicyPropertiesWithSecrets?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2535,7 +2535,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2556,8 +2556,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2617,7 +2617,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/accountFilters?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/accountFilters?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2628,7 +2628,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2647,8 +2647,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2676,7 +2676,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/accountFilters/:filterName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/accountFilters/:filterName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2687,7 +2687,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2707,8 +2707,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2743,7 +2743,7 @@
 							"raw": "{\r\n\t\"properties\": {\r\n        \"tracks\": [\r\n       \r\n          {\r\n            \"trackSelections\": [\r\n              {\r\n                \"property\": \"Type\",\r\n                \"operation\": \"Equal\",\r\n                \"value\": \"Video\"\r\n              },\r\n              {\r\n                \"property\": \"Bitrate\",\r\n                \"operation\": \"Equal\",\r\n                \"value\": \"0-1000000\"\r\n              }\r\n            ]\r\n          }\r\n        ]\r\n      }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/accountFilters/:filterName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/accountFilters/:filterName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2754,7 +2754,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2774,8 +2774,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2810,7 +2810,7 @@
 							"raw": "{\r\n      \"properties\": {\r\n        \"presentationTimeRange\": {\r\n          \"startTimestamp\": 10,\r\n          \"endTimestamp\": 170000000,\r\n          \"presentationWindowDuration\": 9223372036854775807,\r\n          \"liveBackoffDuration\": 0,\r\n          \"timescale\": 10000000,\r\n          \"forceEndTimestamp\": false\r\n        },\r\n        \"firstQuality\": {\r\n          \"bitrate\": 128000\r\n        }\r\n      }\r\n    }"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/accountFilters/:filterName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/accountFilters/:filterName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2821,7 +2821,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2841,8 +2841,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2874,7 +2874,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/accountFilters/:filterName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/accountFilters/:filterName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2885,7 +2885,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2905,8 +2905,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -2944,7 +2944,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -2955,7 +2955,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -2974,8 +2974,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3003,7 +3003,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3014,7 +3014,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3034,8 +3034,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3070,7 +3070,7 @@
 							"raw": "{\r\n    \"properties\": {\r\n        \"description\": \"Basic Transform using an Adaptive Streaming encoding preset from the library of built-in Standard Encoder presets\",\r\n        \"outputs\": [\r\n            {\r\n                \"onError\": \"StopProcessingJob\",\r\n                \"relativePriority\": \"Normal\",\r\n                \"preset\": {\r\n                    \"@odata.type\": \"#Microsoft.Media.BuiltInStandardEncoderPreset\",\r\n                    \"presetName\": \"AdaptiveStreaming\"\r\n                }\r\n            }\r\n        ]\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3081,7 +3081,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3101,8 +3101,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3137,7 +3137,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets\",\r\n      \"outputs\": [\r\n        {\r\n          \"onError\": \"StopProcessingJob\",\r\n      \"relativePriority\": \"Normal\",\r\n          \"preset\": {\r\n            \"@odata.type\": \"#Microsoft.Media.BuiltInStandardEncoderPreset\",\r\n            \"presetName\": \"H264MultipleBitrate720p\"\r\n          }\r\n        }\r\n      ]\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3148,7 +3148,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3168,8 +3168,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3201,7 +3201,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3212,7 +3212,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3232,8 +3232,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3265,7 +3265,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3276,7 +3276,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3297,8 +3297,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3330,7 +3330,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3341,7 +3341,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3363,8 +3363,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3403,7 +3403,7 @@
 							"raw": "{\r\n \"properties\": {\r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputHttp\",\r\n      \"baseUri\": \"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/\",\r\n      \"files\": [\r\n      \t\t\"Ignite-short.mp4\"\r\n      \t]\r\n    },\r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"myOutputAsset\"\r\n      }\r\n    ],\r\n    \"priority\" : \"Normal\",\r\n    \"correlationData\": {\r\n    \t\"myKey1\" :\"my custom correlation metadata for this job\"\r\n    }\r\n }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3414,7 +3414,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3436,8 +3436,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3476,7 +3476,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"A Job with transform cb9599fb-03b3-40eb-a2ff-7ea909f53735 and single clip.\",\r\n   \r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputHttp\",\r\n      \"baseUri\": \"https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/\",\r\n      \"files\": [\r\n      \t\t\"Ignite-short.mp4\"\r\n      \t],\r\n      \"start\": {\r\n        \"@odata.type\": \"#Microsoft.Media.AbsoluteClipTime\",\r\n        \"time\": \"PT10S\"\r\n      },\r\n      \"end\": {\r\n        \"@odata.type\": \"#Microsoft.Media.AbsoluteClipTime\",\r\n        \"time\": \"PT40S\"\r\n      }\r\n    },\r\n  \r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"myOutputAsset\"\r\n      }\r\n    ],\r\n    \"priority\": \"Normal\"\r\n  }\r\n}\r\n"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3487,7 +3487,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3509,8 +3509,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3549,7 +3549,7 @@
 							"raw": "{\r\n    \"input\": {\r\n      \"@odata.type\": \"#Microsoft.Media.JobInputAsset\",\r\n      \"assetName\": \"job1-InputAsset\"\r\n    },\r\n    \"outputs\": [\r\n      {\r\n        \"@odata.type\": \"#Microsoft.Media.JobOutputAsset\",\r\n        \"assetName\": \"job1-OutputAsset\"\r\n      }\r\n    ],\r\n    \"priority\" : \"Normal\",\r\n    \"correlationData\": {\r\n      \"myKey1\" :\"my custom correlation metadata for this job\"\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3560,7 +3560,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3582,8 +3582,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3619,7 +3619,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3630,7 +3630,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3652,8 +3652,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3689,7 +3689,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName/cancelJob?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName/cancelJob?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3700,7 +3700,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3723,8 +3723,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3788,7 +3788,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3799,7 +3799,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3833,8 +3833,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3862,7 +3862,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3873,7 +3873,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3893,8 +3893,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3929,7 +3929,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"noEncryption\": {\r\n      \"enabledProtocols\": {\r\n        \"download\": true,\r\n        \"dash\": true,\r\n        \"hls\": true,\r\n        \"smoothStreaming\": true\r\n      }\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -3940,7 +3940,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -3960,8 +3960,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -3996,7 +3996,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"defaultContentKeyPolicyName\": \"PolicyWithMultipleOptions\",\r\n    \"commonEncryptionCbcs\": {\r\n      \"enabledProtocols\": {\r\n        \"download\": false,\r\n        \"dash\": false,\r\n        \"hls\": true,\r\n        \"smoothStreaming\": false\r\n      },\r\n      \"contentKeys\": {\r\n        \"defaultKey\": {\r\n          \"label\": \"cbcsDefaultKey\"\r\n        }\r\n      },\r\n      \"drm\": {\r\n        \"fairPlay\": {\r\n          \"customLicenseAcquisitionUrlTemplate\": \"https://example.com/{AssetAlternativeId}/fairplay/{ContentKeyId}\",\r\n          \"allowPersistentLicense\": true\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4007,7 +4007,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4027,8 +4027,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4063,7 +4063,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"defaultContentKeyPolicyName\": \"PolicyWithPlayReadyOptionAndOpenRestriction\",\r\n    \"commonEncryptionCenc\": {\r\n      \"enabledProtocols\": {\r\n        \"download\": false,\r\n        \"dash\": true,\r\n        \"hls\": false,\r\n        \"smoothStreaming\": true\r\n      },\r\n      \"clearTracks\": [\r\n        {\r\n          \"trackSelections\": [\r\n            {\r\n              \"property\": \"FourCC\",\r\n              \"operation\": \"Equal\",\r\n              \"value\": \"hev1\"\r\n            }\r\n          ]\r\n        }\r\n      ],\r\n      \"contentKeys\": {\r\n        \"defaultKey\": {\r\n          \"label\": \"cencDefaultKey\"\r\n        }\r\n      },\r\n      \"drm\": {\r\n        \"playReady\": {\r\n          \"customLicenseAcquisitionUrlTemplate\": \"https://example.com/{AssetAlternativeId}/playready/{ContentKeyId}\",\r\n          \"playReadyCustomAttributes\": \"PlayReady CustomAttributes\"\r\n        },\r\n        \"widevine\": {\r\n          \"customLicenseAcquisitionUrlTemplate\": \"https://example.com/{AssetAlternativeId}/widevine/{ContentKeyId\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4074,7 +4074,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4094,8 +4094,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4130,7 +4130,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"defaultContentKeyPolicyName\": \"PolicyWithClearKeyOptionAndTokenRestriction\",\r\n    \"envelopeEncryption\": {\r\n      \"enabledProtocols\": {\r\n        \"dash\": true,\r\n        \"hls\": true,\r\n        \"smoothStreaming\": true\r\n      },\r\n      \"contentKeys\": {\r\n        \"defaultKey\": {\r\n          \"label\": \"aesDefaultKey\"\r\n        }\r\n      },\r\n      \"customKeyAcquisitionUrlTemplate\": \"https://example.com/{AssetAlternativeId}/envelope/{ContentKeyId}\"\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4141,7 +4141,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4161,8 +4161,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4197,7 +4197,7 @@
 							"raw": "{\r\n    \"defaultContentKeyPolicyName\": \"PolicyWithMultipleOptions\",\r\n    \"envelopeEncryption\": {\r\n      \"enabledProtocols\": {\r\n        \"download\": false,\r\n        \"dash\": true,\r\n        \"hls\": true,\r\n        \"smoothStreaming\": true\r\n      },\r\n      \"contentKeys\": {\r\n        \"defaultKey\": {\r\n          \"label\": \"aesDefaultKey\"\r\n        }\r\n      },\r\n      \"customKeyAcquisitionUrlTemplate\": \"https://example.com/{AssetAlternativeId}/envelope/{ContentKeyId}\"\r\n    },\r\n    \"commonEncryptionCenc\": {\r\n      \"enabledProtocols\": {\r\n        \"download\": false,\r\n        \"dash\": true,\r\n        \"hls\": false,\r\n        \"smoothStreaming\": true\r\n      },\r\n      \"clearTracks\": [\r\n        {\r\n          \"trackSelections\": [\r\n            {\r\n              \"property\": \"FourCC\",\r\n              \"operation\": \"Equal\",\r\n              \"value\": \"hev1\"\r\n            }\r\n          ]\r\n        }\r\n      ],\r\n      \"contentKeys\": {\r\n        \"defaultKey\": {\r\n          \"label\": \"cencDefaultKey\"\r\n        }\r\n      },\r\n      \"drm\": {\r\n        \"playReady\": {\r\n          \"customLicenseAcquisitionUrlTemplate\": \"https://example.com/{AssetAlternativeId}/playready/{ContentKeyId}\",\r\n          \"playReadyCustomAttributes\": \"PlayReady CustomAttributes\"\r\n        },\r\n        \"widevine\": {\r\n          \"customLicenseAcquisitionUrlTemplate\": \"https://example.com/{AssetAlternativeId}/widevine/{ContentKeyId\"\r\n        }\r\n      }\r\n    },\r\n    \"commonEncryptionCbcs\": {\r\n      \"enabledProtocols\": {\r\n        \"download\": false,\r\n        \"dash\": false,\r\n        \"hls\": true,\r\n        \"smoothStreaming\": false\r\n      },\r\n      \"contentKeys\": {\r\n        \"defaultKey\": {\r\n          \"label\": \"cbcsDefaultKey\"\r\n        }\r\n      },\r\n      \"drm\": {\r\n        \"fairPlay\": {\r\n          \"customLicenseAcquisitionUrlTemplate\": \"https://example.com/{AssetAlternativeId}/fairplay/{ContentKeyId}\",\r\n          \"allowPersistentLicense\": true\r\n        }\r\n      }\r\n    }\r\n  }"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4208,7 +4208,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4228,8 +4228,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4261,7 +4261,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4272,7 +4272,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4292,8 +4292,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4325,7 +4325,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4336,7 +4336,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4370,8 +4370,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4399,7 +4399,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4410,7 +4410,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4430,8 +4430,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4466,7 +4466,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"streamingPolicyName\": \"clearStreamingPolicy\",\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"contentKeys\": [],\r\n    \"filters\": []\r\n }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4477,7 +4477,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4497,8 +4497,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4533,7 +4533,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"streamingPolicyName\": \"secureStreamingPolicy\",\r\n    \"streamingLocatorId\": \"90000000-0000-0000-0000-00000000000A\",\r\n    \"filters\": [],\r\n   \"contentKeys\": [\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"aesDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000001\",\r\n        \"Value\": \"1UqLohAfWsEGkULYxHjYZg==\"\r\n      },\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"cencDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000004\",\r\n        \"Value\": \"4UqLohAfWsEGkULYxHjYZg==\"\r\n      },\r\n      {\r\n        \"LabelReferenceInStreamingPolicy\": \"cbcsDefaultKey\",\r\n        \"Id\": \"60000000-0000-0000-0000-000000000007\",\r\n        \"Value\": \"7UqLohAfWsEGkULYxHjYZg==\"\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4544,7 +4544,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4564,8 +4564,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4600,7 +4600,7 @@
 							"raw": "{\r\n  \"properties\": {\r\n    \"streamingPolicyName\": \"secureStreamingPolicy\",\r\n    \"assetName\": \"myOutputAsset\",\r\n    \"contentKeys\": [],\r\n    \"filters\": [],\r\n    \"startTime\": \"2018-03-01T00:00:00Z\",\r\n    \"endTime\": \"2028-12-31T23:59:59.9999999Z\"\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4611,7 +4611,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4631,8 +4631,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4664,7 +4664,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4675,7 +4675,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4695,8 +4695,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4728,7 +4728,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listContentKeys?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listContentKeys?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4739,7 +4739,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4760,8 +4760,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4793,7 +4793,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4804,7 +4804,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -4825,8 +4825,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4886,7 +4886,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4897,7 +4897,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -4916,8 +4916,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -4945,7 +4945,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -4956,7 +4956,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -4976,8 +4976,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5035,7 +5035,7 @@
 							"raw": "{\r\n    \"location\": \"{{location}}\",\r\n    \"properties\": {\r\n        \"description\": \"Simple Live Event using RTMP with 2-second keyframe interval and no ip restriction\",\r\n        \"vanityUrl\": true,\r\n        \"streamOptions\": [\r\n            \"LowLatency\"\r\n        ],\r\n        \"input\": {\r\n            \"streamingProtocol\": \"RTMP\",\r\n            \"accessToken\": \"3075cc04-62ab-4b37-9a4e-70fdb4521458\",\"keyFrameIntervalDuration\": \"PT2S\",\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\",\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"preview\": {\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\"\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"encoding\": {\r\n            \"encodingType\": \"None\",\r\n            \"presetName\": \"\"\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5046,7 +5046,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5070,8 +5070,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5129,7 +5129,7 @@
 							"raw": "{\r\n    \"location\": \"{{location}}\",\r\n    \"properties\": {\r\n        \"description\": \"Simple Live Transcoding Basic Event using RTMP with 2-second keyframe interval and no ip restriction. Encoding Type supports Standard, or Premium1080p \",\r\n        \"vanityUrl\": true,\r\n        \"streamOptions\": [\r\n            \"LowLatency\"\r\n        ],\r\n        \"input\": {\r\n            \"streamingProtocol\": \"RTMP\",\r\n            \"accessToken\": \"3075cc04-62ab-4b37-9a4e-70fdb4521458\",\"keyFrameIntervalDuration\": \"PT2S\",\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\",\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"preview\": {\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\"\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"encoding\": {\r\n            \"encodingType\": \"Standard\",\r\n            \"presetName\": \"\"\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5140,7 +5140,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5164,8 +5164,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5223,7 +5223,7 @@
 							"raw": "{\r\n    \"location\": \"{{location}}\",\r\n    \"properties\": {\r\n        \"description\": \"Premium 1080P Live Transcoding Event using RTMP with 2-second keyframe interval and no ip restriction. Encoding Type supports Standard, or Premium1080p \",\r\n        \"vanityUrl\": true,\r\n        \"streamOptions\": [\r\n            \"LowLatency\"\r\n        ],\r\n        \"input\": {\r\n            \"streamingProtocol\": \"RTMP\",\r\n            \"accessToken\": \"3075cc04-62ab-4b37-9a4e-70fdb4521458\",\"keyFrameIntervalDuration\": \"PT2S\",\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\",\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"preview\": {\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\"\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"encoding\": {\r\n            \"encodingType\": \"Premium1080p\",\r\n            \"presetName\": \"\"\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5234,7 +5234,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5258,8 +5258,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5351,7 +5351,7 @@
 							"raw": "{\r\n  \"location\": \"{{location}}\",\r\n  \"tags\": {\r\n    \"tag1\": \"value1\",\r\n    \"tag2\": \"value2\",\r\n    \"tag3\": \"value3\"\r\n  },\r\n  \"properties\": {\r\n    \"description\": \"test event updated\",\r\n    \"input\": {\r\n      \"streamingProtocol\": \"FragmentedMP4\",\r\n      \"keyFrameIntervalDuration\": \"PT6S\"\r\n    },\r\n    \"preview\": {\r\n      \"accessControl\": {\r\n        \"ip\": {\r\n          \"allow\": [\r\n            {\r\n              \"name\": \"AllowOne\",\r\n              \"address\": \"192.1.1.0\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5362,7 +5362,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5382,8 +5382,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5415,7 +5415,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5426,7 +5426,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5446,8 +5446,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5479,7 +5479,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/start?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/start?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5490,7 +5490,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5511,8 +5511,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5547,7 +5547,7 @@
 							"raw": "{\n    \"removeOutputsOnStop\": true\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/stop?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/stop?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5558,7 +5558,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5579,8 +5579,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5612,7 +5612,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/reset?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/reset?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5623,7 +5623,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5644,8 +5644,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5677,7 +5677,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/liveOutputs?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/liveOutputs?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5688,7 +5688,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5709,8 +5709,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5742,7 +5742,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/liveOutputs/:liveOutputName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/liveOutputs/:liveOutputName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5753,7 +5753,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5775,8 +5775,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5815,7 +5815,7 @@
 							"raw": "{\r\n    \"properties\": {\r\n        \"description\": \"myOutputAsset\",\r\n        \"assetName\": \"myOutputAsset\",\r\n        \"archiveWindowLength\": \"PT5M\",\r\n        \"manifestName\": \"testmanifest\",\r\n        \"hls\": {\r\n          \"fragmentsPerTsSegment\": 1\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/liveOutputs/:liveOutputName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/liveOutputs/:liveOutputName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5826,7 +5826,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5848,8 +5848,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5885,7 +5885,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/liveOutputs/:liveOutputName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName/liveOutputs/:liveOutputName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5896,7 +5896,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5918,8 +5918,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -5955,7 +5955,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -5966,7 +5966,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -5985,8 +5985,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -6014,7 +6014,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6025,7 +6025,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -6045,8 +6045,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -6081,7 +6081,7 @@
 							"raw": "{\r\n  \"location\": \"{{location}}\",\r\n  \"tags\": {\r\n    \"custom tag 1\": \"value 1\",\r\n    \"custom tag 2\": \"value 2\"\r\n  },\r\n  \"properties\": {\r\n    \"description\": \"test Streaming Endpoint\",\r\n    \"scaleUnits\": 0,\r\n    \"availabilitySetName\": \"availableset\",\r\n    \"accessControl\": {\r\n      \"akamai\": {\r\n        \"akamaiSignatureHeaderAuthenticationKeyList\": [\r\n          {\r\n            \"identifier\": \"id1\",\r\n            \"expiration\": \"2029-12-31T16:00:00-08:00\",\r\n            \"base64Key\": \"dGVzdGlkMQ==\"\r\n          },\r\n          {\r\n            \"identifier\": \"id2\",\r\n            \"expiration\": \"2030-12-31T16:00:00-08:00\",\r\n            \"base64Key\": \"dGVzdGlkMQ==\"\r\n          }\r\n        ]\r\n      },\r\n      \"ip\": {\r\n        \"allow\": [\r\n          {\r\n            \"name\": \"AllowedIp\",\r\n            \"address\": \"0.0.0.0\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    \"cdnEnabled\": true\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName?api-version={{api-version}}&autoStart={{autoStart}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName?api-version={{api-version}}&autoStart={{autoStart}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6092,7 +6092,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -6116,8 +6116,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -6152,7 +6152,7 @@
 							"raw": "{\r\n  \"location\": \"{{location}}\",\r\n  \"tags\": {\r\n    \"tag3\": \"value3\",\r\n    \"tag5\": \"value5\"\r\n  },\r\n  \"properties\": {\r\n    \"description\": \"test event 2\",\r\n    \"scaleUnits\": 2\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6163,7 +6163,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -6183,8 +6183,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -6216,7 +6216,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6227,7 +6227,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -6247,8 +6247,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -6280,7 +6280,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6291,7 +6291,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -6312,8 +6312,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -6345,7 +6345,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/stop?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/stop?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6356,7 +6356,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -6377,8 +6377,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -6413,7 +6413,7 @@
 							"raw": "{\n\t \"parameters\": {\n      \"scaleUnit\": 2\n    }\n}"
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/scale?api-version={{api-version}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/scale?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6424,7 +6424,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -6445,8 +6445,8 @@
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"key": "accountName",
@@ -6527,7 +6527,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6538,7 +6538,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -6561,8 +6561,8 @@
 								},
 								{
 									"description": "The name of the resource group within the Azure subscription.",
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"description": "The Media Services account name.",
@@ -6616,7 +6616,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6627,7 +6627,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -6650,8 +6650,8 @@
 								},
 								{
 									"description": "The name of the resource group within the Azure subscription.",
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"description": "The Media Services account name.",
@@ -6690,7 +6690,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6701,7 +6701,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -6723,8 +6723,8 @@
 									"description": "The unique identifier for a Microsoft Azure subscription."
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}",
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}",
 									"description": "The name of the resource group within the Azure subscription."
 								},
 								{
@@ -6764,7 +6764,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName?api-version={{api-version-lva}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6775,7 +6775,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -6797,8 +6797,8 @@
 									"description": "The unique identifier for a Microsoft Azure subscription."
 								},
 								{
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}",
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}",
 									"description": "The name of the resource group within the Azure subscription."
 								},
 								{
@@ -6867,7 +6867,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName/operationResults/:operationId?api-version={{api-version-lva}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName/operationResults/:operationId?api-version={{api-version-lva}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6878,7 +6878,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -6902,8 +6902,8 @@
 								},
 								{
 									"description": "The name of the resource group within the Azure subscription.",
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"description": "The Media Services account name.",
@@ -6952,7 +6952,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName/start?api-version={{api-version-lva}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName/start?api-version={{api-version-lva}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -6963,7 +6963,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -6987,8 +6987,8 @@
 								},
 								{
 									"description": "The name of the resource group within the Azure subscription.",
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"description": "The Media Services account name.",
@@ -7026,7 +7026,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName/stop?api-version={{api-version-lva}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/:mediaGraphName/stop?api-version={{api-version-lva}}",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -7037,7 +7037,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -7061,8 +7061,8 @@
 								},
 								{
 									"description": "The name of the resource group within the Azure subscription.",
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"description": "The Media Services account name.",
@@ -7107,7 +7107,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/?api-version={{api-version-lva}}&$top=25",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/mediaGraphs/?api-version={{api-version-lva}}&$top=25",
 							"protocol": "https",
 							"host": [
 								"management",
@@ -7118,7 +7118,7 @@
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroupName",
+								":resourceGroup",
 								"providers",
 								"Microsoft.Media",
 								"mediaServices",
@@ -7146,8 +7146,8 @@
 								},
 								{
 									"description": "The name of the resource group within the Azure subscription.",
-									"key": "resourceGroupName",
-									"value": "{{resourceGroupName}}"
+									"key": "resourceGroup",
+									"value": "{{resourceGroup}}"
 								},
 								{
 									"description": "The Media Services account name.",
