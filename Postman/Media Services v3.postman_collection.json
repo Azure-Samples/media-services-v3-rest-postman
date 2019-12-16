@@ -6410,7 +6410,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n      \"scaleUnit\": 5\r\n}"
+							"raw": "{\r\n  \"scaleUnit\": 5\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/scale?api-version={{api-version}}",
