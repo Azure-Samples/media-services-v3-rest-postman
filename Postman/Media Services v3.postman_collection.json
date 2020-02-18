@@ -1022,7 +1022,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"A documentary showing the ascent of Mount Logan\",\r\n   }\r\n}"
+							"raw": "{\r\n  \"properties\": {\r\n    \"description\": \"A documentary showing the ascent of Mount Logan\"\r\n   }\r\n}"
 						},
 						"url": {
 							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}",
