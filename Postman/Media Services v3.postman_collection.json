@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "68de5b33-7719-4f1c-a9ee-98ccbf04f80f",
 		"name": "Media Services v3 (2018-07-01 GA)",
-		"description": "Azure Media Services v3 API Collection. Last Modified Date: 08/09/19 ",
+		"description": "Azure Media Services v3 API Collection. Last Modified Date: 05/22/20",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -282,6 +282,70 @@
 							]
 						},
 						"description": "List Media Services accounts in the resource group"
+					},
+					"response": []
+				},
+				{
+					"name": "List Media Edge Policies",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"deviceId\": \"contosiothubhost_contosoiotdevice\"\n}"
+						},
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/listEdgePolicies?api-version={{api-version}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaservices",
+								":accountName",
+								"listEdgePolicies"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "subscriptionId",
+									"type": "string",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"key": "resourceGroupName",
+									"type": "string",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"key": "accountName",
+									"value": "{{accountName}}"
+								}
+							]
+						},
+						"description": "List the media edge policies associated with the Media Services account."
 					},
 					"response": []
 				},
