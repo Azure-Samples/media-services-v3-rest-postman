@@ -1390,6 +1390,70 @@
 					"response": []
 				},
 				{
+					"name": "Create a Media Services account with Managed Identity",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"location\": \"{{location}}\",\r\n    \"tags\": {\r\n        \"createdBy\": \"user name\",\r\n        \"key2\": \"value2\"\r\n    },\r\n    \"properties\": {\r\n        \"storageAccounts\": [\r\n            {\r\n                \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contososportsstore\",\r\n                \"type\": \"Primary\"\r\n            }\r\n        ],\r\n        \"encryption\": {\r\n            \"type\": \"SystemKey\"\r\n        }\r\n    },\r\n    \"identity\": {\r\n        \"type\": \"SystemAssigned\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName?api-version={{api-version}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaservices",
+								":accountName"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "subscriptionId",
+									"type": "string",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"key": "resourceGroupName",
+									"type": "string",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"key": "accountName",
+									"type": "string",
+									"value": "{{accountName}}"
+								}
+							]
+						},
+						"description": "Creates or updates a Media Services account"
+					},
+					"response": []
+				},
+				{
 					"name": "Update a Media Services account",
 					"request": {
 						"method": "PATCH",
@@ -1405,7 +1469,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n      \"tags\": {\r\n        \"key1\": \"value3\"\r\n      }\r\n}"
+							"raw": "{\r\n  \"identity\": {\r\n      \"type\": \"SystemAssigned\"\r\n  },\r\n  \"properties\": {\r\n    \"storageAccounts\": [\r\n      {\r\n        \"id\": \"{{storageAccountId}}\"\r\n      }\r\n    ],\r\n    \"encryption\": {\r\n        \"type\": \"CustomerKey\",\r\n        \"keyVaultProperties\": { \"keyIdentifier\": \"{{encryptionKeyId}}\" }\r\n    }\r\n  },\r\n  \"location\": \"{{location}}\",\r\n  \"tags\": {}\r\n}\r\n"
 						},
 						"url": {
 							"raw": "https://{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName?api-version={{api-version}}",
