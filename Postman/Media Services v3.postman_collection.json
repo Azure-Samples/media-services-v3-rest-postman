@@ -6000,13 +6000,13 @@
 					},
 					"response": []
 				},
-				{
-					"name": "Create Live Event - Async (Standard 720P Live Encoder)",
+						{
+					"name": "Create Live Event (pass-through) with Transcriptions",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "f6b967e4-fa42-4b8c-b1e6-2f6f0151f176",
+								"id": "de272060-b90a-403b-bab0-f2f351d3da49",
 								"exec": [
 									"// This is an async operation so we expect a 202 Accepted response",
 									"pm.test(\"Status code is 202 Accepted. Check the Header Azure-AsyncOperation and call the value for status polling\", function () {",
@@ -6039,19 +6039,21 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"location\": \"{{location}}\",\r\n    \"properties\": {\r\n        \"description\": \"Simple Live Transcoding Basic Event using RTMP with 2-second keyframe interval and no ip restriction. Encoding Type supports Standard, or Premium1080p \",\r\n        \"vanityUrl\": true,\r\n        \"streamOptions\": [\r\n            \"LowLatency\"\r\n        ],\r\n        \"input\": {\r\n            \"streamingProtocol\": \"RTMP\",\r\n            \"accessToken\": \"3075cc04-62ab-4b37-9a4e-70fdb4521458\",\"keyFrameIntervalDuration\": \"PT2S\",\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\",\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"preview\": {\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\"\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"encoding\": {\r\n            \"encodingType\": \"Standard\",\r\n            \"presetName\": \"\"\r\n        }\r\n    }\r\n}"
+							"raw": "{\n    \"location\": \"{{location}}\",\n    \"properties\": {\n        \"description\": \"Simple Live Event using RTMP with 2-second keyframe interval and no ip restriction\",\n        \"vanityUrl\": true,\n        \"streamOptions\": [\n            \"LowLatency\"\n        ],\n        \"input\": {\n            \"keyFrameIntervalDuration\": \"PT2S\",\n            \"streamingProtocol\": \"RTMP\",\n            \"accessToken\": \"9eb1f703b149417c8448771867f48501\",\n            \"accessControl\": {\n                \"ip\": {\n                    \"allow\": [\n                        {\n                            \"name\": \"AllowAll\",\n                            \"address\": \"0.0.0.0\",\n                            \"subnetPrefixLength\": 0\n                        }\n                    ]\n                }\n            }\n        },\n        \"preview\": {\n            \"accessControl\": {\n                \"ip\": {\n                    \"allow\": [\n                        {\n                            \"name\": \"AllowAll\",\n                            \"address\": \"0.0.0.0\",\n                            \"subnetPrefixLength\": 0\n                        }\n                    ]\n                }\n            }\n        },\n        \"encoding\": {\n            \"encodingType\": \"None\",\n            \"presetName\": \"\"\n        },\n        \"transcriptions\": [\n            {\n                \"language\": \"en-us\"\n            }\n        ]\n        \n    }\n}"
 						},
 						"url": {
-							"raw": "https://{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"management",
+								"azure",
+								"com"
 							],
 							"path": [
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroup",
+								":resourceGroupName",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -6066,39 +6068,44 @@
 								},
 								{
 									"key": "autoStart",
-									"value": "{{autoStart}}"
+									"value": "{{autoStart}}",
+									"disabled": true
 								}
 							],
 							"variable": [
 								{
 									"key": "subscriptionId",
+									"type": "string",
 									"value": "{{subscriptionId}}"
 								},
 								{
-									"key": "resourceGroup",
-									"value": "{{resourceGroup}}"
+									"key": "resourceGroupName",
+									"type": "string",
+									"value": "{{resourceGroupName}}"
 								},
 								{
 									"key": "accountName",
+									"type": "string",
 									"value": "{{accountName}}"
 								},
 								{
 									"key": "liveEventName",
+									"type": "string",
 									"value": "{{liveEventName}}"
 								}
 							]
 						},
-						"description": "Creates a Live Event with standard live encoder. NOTE: this is an asynchronous operation which can take time.  You should use standard Azure ARM async pattern to poll for the status of the provisioning of this resource. See - https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations -  The response code will be a 202 Accept, at which point you should parse the Azure-AsyncOperation header for the path to poll for status. Once the status is Succeeded, you can make a GET request on the LiveEvent to access the RTMP ingest URLs and the Preview manifest endpoints"
+						"description": "Creates a Live Event with pass-through mode. No encoding."
 					},
 					"response": []
 				},
 				{
-					"name": "Create Live Event - Async (Premium 1080P Live Encoder)",
+					"name": "Create Live Event -Async (Standard 720P Encoder)",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "f6b967e4-fa42-4b8c-b1e6-2f6f0151f176",
+								"id": "97348882-7be5-456c-a549-9e9b9ca4c8d7",
 								"exec": [
 									"// This is an async operation so we expect a 202 Accepted response",
 									"pm.test(\"Status code is 202 Accepted. Check the Header Azure-AsyncOperation and call the value for status polling\", function () {",
@@ -6131,19 +6138,21 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"location\": \"{{location}}\",\r\n    \"properties\": {\r\n        \"description\": \"Premium 1080P Live Transcoding Event using RTMP with 2-second keyframe interval and no ip restriction. Encoding Type supports Standard, or Premium1080p \",\r\n        \"vanityUrl\": true,\r\n        \"streamOptions\": [\r\n            \"LowLatency\"\r\n        ],\r\n        \"input\": {\r\n            \"streamingProtocol\": \"RTMP\",\r\n            \"accessToken\": \"3075cc04-62ab-4b37-9a4e-70fdb4521458\",\"keyFrameIntervalDuration\": \"PT2S\",\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\",\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"preview\": {\r\n            \"accessControl\": {\r\n                \"ip\": {\r\n                    \"allow\": [{\r\n                        \"name\": \"AllowAll\",\r\n                        \"address\": \"0.0.0.0\"\r\n                        \"subnetPrefixLength\": 0\r\n                    }]\r\n                }\r\n            }\r\n        },\r\n        \"encoding\": {\r\n            \"encodingType\": \"Premium1080p\",\r\n            \"presetName\": \"\"\r\n        }\r\n    }\r\n}"
+							"raw": "{\n    \"location\": \"{{location}}\",\n    \"tags\": {\n        \"createdBy\": \"user name\"\n    },\n    \"properties\": {\n        \"description\": \"Simple Live Event encoder for RTMP with 2-second keyframe interval and no ip restriction\",\n        \"vanityUrl\": true,\n        \"streamOptions\": [\n            \"LowLatency\"\n        ],\n        \"input\": {\n            \"streamingProtocol\": \"RTMP\",\n            \"keyFrameIntervalDuration\": \"PT2S\",\n            \"accessControl\": {\n                \"ip\": {\n                    \"allow\": [\n                        {\n                            \"name\": \"AllowAll\",\n                            \"address\": \"0.0.0.0\",\n                            \"subnetPrefixLength\": 0\n                        }\n                    ]\n                }\n            }\n        },\n        \"preview\": {\n            \"accessControl\": {\n                \"ip\": {\n                    \"allow\": [\n                        {\n                            \"name\": \"AllowAll\",\n                            \"address\": \"0.0.0.0\",\n                            \"subnetPrefixLength\": 0\n                        }\n                    ]\n                }\n            }\n        },\n        \"encoding\": {\n            \"encodingType\": \"Premium1080p\",\n            \"presetName\": \"\",\n            \"stretchMode\": \"None\",\n            \"keyFrameInterval\": \"PT2S\"\n        },\n        \"transcriptions\": [\n            {\n                \"language\": \"en-us\"\n            }\n        ]\n    }\n}"
 						},
 						"url": {
-							"raw": "https://{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroup/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}&autoStart={{autoStart}}",
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}",
 							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"management",
+								"azure",
+								"com"
 							],
 							"path": [
 								"subscriptions",
 								":subscriptionId",
 								"resourceGroups",
-								":resourceGroup",
+								":resourceGroupName",
 								"providers",
 								"Microsoft.Media",
 								"mediaservices",
@@ -6158,29 +6167,234 @@
 								},
 								{
 									"key": "autoStart",
-									"value": "{{autoStart}}"
+									"value": "{{autoStart}}",
+									"disabled": true
 								}
 							],
 							"variable": [
 								{
 									"key": "subscriptionId",
-									"value": "{{subscriptionId}}"
+									"value": "{{subscriptionId}}",
+									"type": "string"
 								},
 								{
-									"key": "resourceGroup",
-									"value": "{{resourceGroup}}"
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}",
+									"type": "string"
 								},
 								{
 									"key": "accountName",
+									"value": "{{accountName}}",
+									"type": "string"
+								},
+								{
+									"key": "liveEventName",
+									"value": "{{liveEventName}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Creates a Live Event with standard live encoder."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Live Event - Async(Premium 1080p encoder)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d367ad59-0279-4ad1-9061-182a2b517381",
+								"exec": [
+									"// This is an async operation so we expect a 202 Accepted response",
+									"pm.test(\"Status code is 202 Accepted. Check the Header Azure-AsyncOperation and call the value for status polling\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});",
+									"",
+									"// Check that we have an Azure-Async Operation header ",
+									"pm.test(\"Azure-AsyncOperation Header exists\", function () {",
+									"    pm.response.to.have.header(\"Azure-AsyncOperation\");",
+									"});",
+									"",
+									"",
+									"pm.environment.set(\"Last-Azure-AsyncOperation\", pm.response.headers.get(\"Azure-AsyncOperation\") );"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"{{location}}\",\n    \"tags\": {\n        \"createdBy\": \"user name\"\n    },\n    \"properties\": {\n        \"description\": \"Simple Live Event encoder for RTMP with 2-second keyframe interval and no ip restriction\",\n        \"vanityUrl\": true,\n        \"streamOptions\": [\n            \"LowLatency\"\n        ],\n        \"input\": {\n            \"streamingProtocol\": \"RTMP\",\n            \"keyFrameIntervalDuration\": \"PT2S\",\n            \"accessControl\": {\n                \"ip\": {\n                    \"allow\": [\n                        {\n                            \"name\": \"AllowAll\",\n                            \"address\": \"0.0.0.0\",\n                            \"subnetPrefixLength\": 0\n                        }\n                    ]\n                }\n            }\n        },\n        \"preview\": {\n            \"accessControl\": {\n                \"ip\": {\n                    \"allow\": [\n                        {\n                            \"name\": \"AllowAll\",\n                            \"address\": \"0.0.0.0\",\n                            \"subnetPrefixLength\": 0\n                        }\n                    ]\n                }\n            }\n        },\n        \"encoding\": {\n            \"encodingType\": \"Premium1080p\",\n            \"presetName\": \"\",\n            \"stretchMode\": \"None\",\n            \"keyFrameInterval\" : \"PT2S\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaservices",
+								":accountName",
+								"liveEvents",
+								":liveEventName"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version}}"
+								},
+								{
+									"key": "autoStart",
+									"value": "{{autoStart}}",
+									"description": "set to true to transition live event directly to running. If planning to create the resource in stopped mode, and allocate it in standby mode, set this to false.",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "subscriptionId",
+									"value": "{{subscriptionId}}",
+									"type": "string"
+								},
+								{
+									"key": "resourceGroupName",
+									"value": "{{resourceGroupName}}",
+									"type": "string"
+								},
+								{
+									"key": "accountName",
+									"value": "{{accountName}}",
+									"type": "string"
+								},
+								{
+									"key": "liveEventName",
+									"value": "{{liveEventName}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Creates a Live Event with Premium live encoder."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Live Event (Premium 1080p encoder) with Transcriptions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a924372e-0ff9-4e98-8675-b8e28db50abe",
+								"exec": [
+									"// This is an async operation so we expect a 202 Accepted response",
+									"pm.test(\"Status code is 202 Accepted. Check the Header Azure-AsyncOperation and call the value for status polling\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});",
+									"",
+									"// Check that we have an Azure-Async Operation header ",
+									"pm.test(\"Azure-AsyncOperation Header exists\", function () {",
+									"    pm.response.to.have.header(\"Azure-AsyncOperation\");",
+									"});",
+									"",
+									"",
+									"pm.environment.set(\"Last-Azure-AsyncOperation\", pm.response.headers.get(\"Azure-AsyncOperation\") );"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"{{location}}\",\n    \"tags\": {\n        \"createdBy\": \"user name\"\n    },\n    \"properties\": {\n        \"description\": \"Simple Live Event encoder for RTMP with 2-second keyframe interval and no ip restriction\",\n        \"vanityUrl\": true,\n        \"streamOptions\": [\n            \"LowLatency\"\n        ],\n        \"input\": {\n            \"streamingProtocol\": \"RTMP\",\n            \"keyFrameIntervalDuration\": \"PT2S\",\n            \"accessControl\": {\n                \"ip\": {\n                    \"allow\": [\n                        {\n                            \"name\": \"AllowAll\",\n                            \"address\": \"0.0.0.0\",\n                            \"subnetPrefixLength\": 0\n                        }\n                    ]\n                }\n            }\n        },\n        \"preview\": {\n            \"accessControl\": {\n                \"ip\": {\n                    \"allow\": [\n                        {\n                            \"name\": \"AllowAll\",\n                            \"address\": \"0.0.0.0\",\n                            \"subnetPrefixLength\": 0\n                        }\n                    ]\n                }\n            }\n        },\n        \"encoding\": {\n            \"encodingType\": \"Premium1080p\",\n            \"presetName\": \"\",\n            \"stretchMode\": \"None\",\n            \"keyFrameInterval\" : \"PT2S\"\n        },\n        \"transcriptions\": [\n            {\n                \"language\": \"en-us\"\n            }\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/liveEvents/:liveEventName?api-version={{api-version}}",
+							"protocol": "https",
+							"host": [
+								"management",
+								"azure",
+								"com"
+							],
+							"path": [
+								"subscriptions",
+								":subscriptionId",
+								"resourceGroups",
+								":resourceGroupName",
+								"providers",
+								"Microsoft.Media",
+								"mediaservices",
+								":accountName",
+								"liveEvents",
+								":liveEventName"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "{{api-version}}"
+								},
+								{
+									"key": "autoStart",
+									"value": "{{autoStart}}",
+									"description": "set to true to transition live event directly to running. If planning to create the resource in stopped mode, and allocate it in standby mode, set this to false.",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "subscriptionId",
+									"type": "string",
+									"value": "{{subscriptionId}}"
+								},
+								{
+									"key": "resourceGroupName",
+									"type": "string",
+									"value": "{{resourceGroupName}}"
+								},
+								{
+									"key": "accountName",
+									"type": "string",
 									"value": "{{accountName}}"
 								},
 								{
 									"key": "liveEventName",
+									"type": "string",
 									"value": "{{liveEventName}}"
 								}
 							]
 						},
-						"description": "Creates a Live Event with Premium 1080p live encoder. NOTE: this is an asynchronous operation which can take time.  You should use standard Azure ARM async pattern to poll for the status of the provisioning of this resource. See - https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations - The response code will be a 202 Accept, at which point you should parse the Azure-AsyncOperation header for the path to poll for status. Once the status is Succeeded, you can make a GET request on the LiveEvent to access the RTMP ingest URLs and the Preview manifest endpoints"
+						"description": "Creates a Live Event with Premium live encoder."
 					},
 					"response": []
 				},
