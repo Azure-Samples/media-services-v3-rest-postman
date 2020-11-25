@@ -61,7 +61,7 @@
 								},
 								{
 									"key": "resource",
-									"value": "https://management.core.windows.net/",
+									"value": "{{arm-resource}}",
 									"description": "Normally this is https://management.core.windows.net/ \nIt can vary based on the specific Azure Cloud you are using. \nFor Gov Cloud, China, Germany or other soverign cloud, please check the appropriate Azure management API endpoint URL settings in the documentation. ",
 									"type": "text"
 								}
@@ -7405,6 +7405,11 @@
 			"id": "2aa62400-85e5-4ccc-bc64-72c7d9db6536",
 			"key": "api-version",
 			"value": "2020-05-01"
+		},
+		{
+			"id": "4f45208c-8ac1-430c-8b61-32f5df44808f",
+			"key": "arm-resource",
+			"value": "https://management.core.windows.net/"
 		}
 	]
 }
