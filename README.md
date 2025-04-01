@@ -9,7 +9,9 @@ description: "A full Postman collection and Environment variables to test drive 
 urlFragment: azure-media-services-postman-collection
 ---
 
-# Azure Media Services v3 Postman collection 
+# Azure Media Services v3 Postman collection
+
+**IMPORTANT NOTE : Azure Media Services have been retired on June 30, 2024. Please see the [retirement guide](https://learn.microsoft.com/azure/media-services/latest/azure-media-services-retirement).**
  
 The *Postman* folder in this repository contains a full Postman collection and Environment variables to test drive the new v3 REST API directly from within Postman 6.0 or higher.  These samples are built on top of the 2018-07-01 version of the REST API and may not be up-to-date. Please check the latest OpenAPI specifications published in the [azure-res-api-specs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable) Git Hub repository for Microsoft.Media resource provider. 
 
